@@ -1,15 +1,15 @@
 {
-  "name": "docusaurus-tailwind-shadcn-template",
-  "description": "Integrating Tailwind CSS and Shadcn/ui with Docusaurus website template",
-  "author": "Thành Nam Nguyễn",
+  "name": "openclaw-masterclass",
+  "description": "The most comprehensive OpenClaw learning resource center — 12-module MasterClass, Top 50 Skills, and community-driven guides",
+  "author": "tenten",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git"
+    "url": "git+https://github.com/tentendev/openclaw-masterclass.git"
   },
   "bugs": {
-    "url": "https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/issues"
+    "url": "https://github.com/tentendev/openclaw-masterclass/issues"
   },
-  "homepage": "https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template#readme",
+  "homepage": "https://tenten.co/openclaw/",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -25,7 +25,9 @@
     "gen-api-docs": "docusaurus gen-api-docs",
     "clean-api-docs": "docusaurus clean-api-docs",
     "gen-api-docs:version": "docusaurus gen-api-docs:version",
-    "clean-api-docs:version": "docusaurus clean-api-docs:version"
+    "clean-api-docs:version": "docusaurus clean-api-docs:version",
+    "start:en": "docusaurus start --locale en",
+    "build:fast": "docusaurus build --locale zh-Hant"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
@@ -36,7 +38,10 @@
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@mdx-js/react": "^3.1.1",
     "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-openapi-docs": "^4.5.1",

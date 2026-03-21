@@ -1,0 +1,7 @@
+# OpenClaw MasterClass - robots.txt
+User-agent: *
+Allow: /
+
+Disallow: /openclaw/search
+
+Sitemap: https://tenten.co/openclaw/sitemap.xml

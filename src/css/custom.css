@@ -428,3 +428,306 @@ div[class^='docItemContainer_'] article img {
     padding: 0 0.5rem 0 2.25rem;
   }
 }
+
+/* ============================================================
+   OpenClaw Brand Enhancements
+   ============================================================ */
+
+/* --- 1. OpenClaw Brand Colors & Docusaurus Primary Override --- */
+:root {
+  /* OpenClaw brand tokens */
+  --openclaw-red: #E74C3C;
+  --openclaw-red-dark: #C0392B;
+  --openclaw-red-light: #FF6B5A;
+  --openclaw-blue: #1A365D;
+  --openclaw-blue-light: #2A4A7F;
+  --openclaw-amber: #F6AD55;
+  --openclaw-amber-dark: #DD9A3C;
+
+  /* Override Docusaurus primary palette to lobster red */
+  --ifm-color-primary: #E74C3C;
+  --ifm-color-primary-dark: #D44332;
+  --ifm-color-primary-darker: #C93B2B;
+  --ifm-color-primary-darkest: #A33024;
+  --ifm-color-primary-light: #EB6458;
+  --ifm-color-primary-lighter: #ED7164;
+  --ifm-color-primary-lightest: #F29588;
+  --ifm-color-primary-contrast-background: #FDF2F1;
+  --ifm-color-primary-contrast-foreground: #5A1A13;
+}
+
+html[data-theme='dark'] {
+  /* Lighter coral for dark mode readability */
+  --ifm-color-primary: #FF8A7A;
+  --ifm-color-primary-dark: #FF6B58;
+  --ifm-color-primary-darker: #FF5C46;
+  --ifm-color-primary-darkest: #FF3118;
+  --ifm-color-primary-light: #FFA99C;
+  --ifm-color-primary-lighter: #FFB8AE;
+  --ifm-color-primary-lightest: #FFE0DB;
+  --ifm-color-primary-contrast-background: #2D1513;
+  --ifm-color-primary-contrast-foreground: #FFE0DB;
+}
+
+/* --- 2. Enhanced Dark Mode --- */
+html[data-theme='dark'] {
+  --ifm-background-color: #0F172A;
+  --ifm-background-surface-color: #131B2E;
+  --ifm-footer-background-color: #0B1121;
+  --ifm-navbar-background-color: #0F172A;
+  --ifm-card-background-color: #131B2E;
+  color-scheme: dark;
+}
+
+/* Smooth light/dark transition */
+html,
+html *,
+html *::before,
+html *::after {
+  transition:
+    background-color 0.25s ease,
+    color 0.15s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* --- 3. Smooth Scroll --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html,
+  html *,
+  html *::before,
+  html *::after {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* --- 4. Better Code Blocks --- */
+div[class^='codeBlockContainer_'],
+pre[class*='prismCodeBlock'] {
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+
+:root div[class^='codeBlockContainer_'] {
+  --prism-background-color: #1E293B;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] div[class^='codeBlockContainer_'] {
+  --prism-background-color: #0D1526;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Code block title bar */
+div[class^='codeBlockTitle_'] {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Line numbers */
+.prism-code .token-line .line-number {
+  color: rgba(148, 163, 184, 0.5);
+  min-width: 2.5em;
+  padding-right: 1em;
+  text-align: right;
+  user-select: none;
+}
+
+/* --- 5. Custom Admonition Colors --- */
+:root {
+  /* Danger — uses brand red */
+  --ifm-color-danger: #E74C3C;
+  --ifm-color-danger-dark: #C0392B;
+  --ifm-color-danger-darker: #A93226;
+  --ifm-color-danger-darkest: #7B241C;
+  --ifm-color-danger-light: #EC7063;
+  --ifm-color-danger-lighter: #F1948A;
+  --ifm-color-danger-lightest: #FADBD8;
+  --ifm-color-danger-contrast-background: #FDF2F1;
+
+  /* Warning — uses brand amber */
+  --ifm-color-warning: #F6AD55;
+  --ifm-color-warning-dark: #E09843;
+  --ifm-color-warning-darker: #D48E39;
+  --ifm-color-warning-darkest: #B0742A;
+  --ifm-color-warning-light: #F8BD73;
+  --ifm-color-warning-lighter: #F9C780;
+  --ifm-color-warning-lightest: #FDEBD0;
+  --ifm-color-warning-contrast-background: #FEF9F0;
+
+  /* Tip / Success — ocean blue accent */
+  --ifm-color-success: #1A936F;
+  --ifm-color-success-dark: #167D5F;
+  --ifm-color-success-darker: #147459;
+  --ifm-color-success-darkest: #0F5B46;
+  --ifm-color-success-light: #1EAA80;
+  --ifm-color-success-lighter: #22B688;
+  --ifm-color-success-lightest: #A3E4D7;
+  --ifm-color-success-contrast-background: #EAF8F4;
+}
+
+/* --- 6. Animated Gradient Heading Utility --- */
+@utility gradient-text {
+  background: linear-gradient(
+    135deg,
+    #E74C3C 0%,
+    #F6AD55 25%,
+    #E74C3C 50%,
+    #1A365D 75%,
+    #E74C3C 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text-shift 6s ease infinite;
+}
+
+@keyframes gradient-text-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --- 7. Better Link Hover Effects --- */
+.markdown a,
+.menu__link,
+.footer__link-item,
+.table-of-contents__link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+
+.markdown a:hover,
+.menu__link:hover,
+.footer__link-item:hover,
+.table-of-contents__link:hover {
+  text-decoration: none;
+  background-size: 100% 1.5px;
+}
+
+/* Keep nav links clean (they have their own active styles) */
+.navbar__link {
+  background-image: none !important;
+}
+
+/* --- 8. Responsive Improvements --- */
+@media screen and (max-width: 767px) {
+  /* Navbar breathing room on mobile */
+  .navbar {
+    padding: 0.35rem 0.75rem;
+  }
+
+  .navbar__title {
+    font-size: 1rem;
+  }
+
+  .navbar__logo img {
+    height: 1.75rem;
+  }
+
+  /* Docs sidebar padding on mobile */
+  .menu {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .menu__link {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  /* Doc content spacing */
+  .markdown {
+    padding: 0 0.25rem;
+  }
+
+  .markdown h1 {
+    font-size: 1.6rem;
+  }
+
+  .markdown h2 {
+    font-size: 1.35rem;
+  }
+
+  .markdown h3 {
+    font-size: 1.15rem;
+  }
+
+  /* TOC hidden on small screens (Docusaurus already does this, reinforce) */
+  div[class^='tableOfContents_'] {
+    display: none;
+  }
+}
+
+/* Better spacing for medium tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .menu__link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* --- 9. Print Styles --- */
+@media print {
+  .navbar,
+  .footer,
+  div[class^='tableOfContents_'],
+  .pagination-nav,
+  .theme-doc-breadcrumbs,
+  aside[class*='sidebar'] {
+    display: none !important;
+  }
+
+  .main-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .markdown {
+    max-width: 100% !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: underline !important;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    color: #666;
+  }
+}
+
+/* --- 10. Brand-Colored Text Selection --- */
+::selection {
+  background-color: rgba(231, 76, 60, 0.25);
+  color: inherit;
+}
+
+html[data-theme='dark'] ::selection {
+  background-color: rgba(255, 138, 122, 0.3);
+  color: inherit;
+}

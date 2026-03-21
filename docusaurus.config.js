@@ -19,6 +19,31 @@ const config = {
     }
   },
 
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: { type: 'application/ld+json' },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'OpenClaw MasterClass',
+        url: 'https://tenten.co/openclaw/',
+        description: 'The most comprehensive OpenClaw learning resource center with 12-module MasterClass, Top 50 Skills guide, and community resources.',
+        inLanguage: ['zh-Hant', 'en', 'ja', 'zh-Hans', 'ko'],
+        publisher: {
+          '@type': 'Organization',
+          name: 'tenten',
+          url: 'https://tenten.co',
+        },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://tenten.co/openclaw/search?q={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      }),
+    },
+  ],
+
   i18n: {
     defaultLocale: 'zh-Hant',
     locales: ['zh-Hant', 'en', 'ja', 'zh-Hans', 'ko'],
@@ -59,14 +84,24 @@ const config = {
     ({
       image: 'img/openclaw-social-card.jpg',
       metadata: [
-        { name: 'keywords', content: 'OpenClaw, AI agent, 養龍蝦, MasterClass, tutorial, skills, ClawHub' },
+        { name: 'keywords', content: 'OpenClaw, AI agent, 養龍蝦, MasterClass, tutorial, skills, ClawHub, automation, multi-agent, browser agent' },
         { name: 'twitter:card', content: 'summary_large_image' },
+        { property: 'og:site_name', content: 'OpenClaw MasterClass' },
+        { property: 'og:locale', content: 'zh_TW' },
+        { property: 'og:locale:alternate', content: 'en_US' },
+        { property: 'og:locale:alternate', content: 'ja_JP' },
+        { property: 'og:locale:alternate', content: 'zh_CN' },
+        { property: 'og:locale:alternate', content: 'ko_KR' },
+        { name: 'author', content: 'tenten' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'googlebot', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
       ],
       navbar: {
         title: 'OpenClaw MasterClass',
         logo: {
           alt: 'OpenClaw MasterClass Logo',
-          src: 'img/logo.svg'
+          src: 'img/logo.svg',
+          srcDark: 'img/logo-dark.svg',
         },
         items: [
           {

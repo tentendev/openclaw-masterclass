@@ -3,18 +3,26 @@
 
 # Production
 /build
+/_build_tmp/
 
 # Generated files
-.docusaurus
+.docusaurus/
 .cache-loader
 
-# Misc
-.DS_Store
+# Environment variables
+.env
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# Misc
+.DS_Store
+Thumbs.db
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*

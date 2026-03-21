@@ -458,5 +458,95 @@
   },
   "homepage.latestNews.viewAll": {
     "message": "すべての記事を見る"
+  },
+  "homepage.quote.text": {
+    "message": "おそらく、これまでで最も重要なソフトウェアリリースです"
+  },
+  "homepage.quote.attribution": {
+    "message": "Jensen Huang、NVIDIA CEO — GTC 2026"
+  },
+  "homepage.march.label": {
+    "message": "最新アップデート"
+  },
+  "homepage.march.title": {
+    "message": "2026年3月の新着情報"
+  },
+  "homepage.march.highlight1": {
+    "message": "NVIDIA GTCでNemoClawを発表"
+  },
+  "homepage.march.highlight2": {
+    "message": "GitHub Stars 25万件突破"
+  },
+  "homepage.march.highlight3": {
+    "message": "ClawHavocセキュリティパッチをリリース"
+  },
+  "homepage.march.highlight4": {
+    "message": "5つの新しいフラッグシップLLMモデルに対応"
+  },
+  "homepage.march.cta": {
+    "message": "変更履歴を見る"
+  },
+  "homepage.course.sectionTitle": {
+    "message": "MasterClass モジュール"
+  },
+  "homepage.course.sectionSubtitle": {
+    "message": "基礎から本番レベルの専門知識まで、6つの体系的なモジュール"
+  },
+  "homepage.course.mod1.title": {
+    "message": "アーキテクチャ詳解"
+  },
+  "homepage.course.mod1.desc": {
+    "message": "OpenClawのコアアーキテクチャ、イベントパイプライン、プラグインシステムを基礎から理解します。"
+  },
+  "homepage.course.mod2.title": {
+    "message": "はじめてのSkill"
+  },
+  "homepage.course.mod2.desc": {
+    "message": "ステップバイステップのガイダンスで、Skillをゼロから構築、テスト、公開します。"
+  },
+  "homepage.course.mod3.title": {
+    "message": "マルチプラットフォームデプロイ"
+  },
+  "homepage.course.mod3.desc": {
+    "message": "統一された設定でSlack、Discord、Teams、LINEにOpenClawをデプロイします。"
+  },
+  "homepage.course.mod4.title": {
+    "message": "Gateway API とルーティング"
+  },
+  "homepage.course.mod4.desc": {
+    "message": "トラフィック管理、レート制限、インテリジェントルーティングのためのGateway APIをマスターします。"
+  },
+  "homepage.course.mod5.title": {
+    "message": "LLM統合"
+  },
+  "homepage.course.mod5.desc": {
+    "message": "統一インターフェースでGPT-4o、Claude、Gemini、オープンソースモデルとOpenClawを接続します。"
+  },
+  "homepage.course.mod6.title": {
+    "message": "セキュリティ強化"
+  },
+  "homepage.course.mod6.desc": {
+    "message": "Skill審査、サンドボックス、シークレット管理、監査ログのベストプラクティスを実装します。"
+  },
+  "homepage.course.difficulty.beginner": {
+    "message": "初級"
+  },
+  "homepage.course.difficulty.intermediate": {
+    "message": "中級"
+  },
+  "homepage.course.difficulty.advanced": {
+    "message": "上級"
+  },
+  "homepage.course.viewModule": {
+    "message": "モジュールを見る"
+  },
+  "homepage.security.title": {
+    "message": "セキュリティ最優先"
+  },
+  "homepage.security.description": {
+    "message": "ClawHavoc脆弱性は、Skill審査とサンドボックスの重要性を浮き彫りにしました。サードパーティのSkillはインストール前に必ず確認し、監査ログを有効にし、最新のセキュリティパッチでOpenClawインスタンスを常に最新の状態に保ちましょう。"
+  },
+  "homepage.security.cta": {
+    "message": "セキュリティベストプラクティス"
   }
 }

@@ -1,0 +1,13 @@
+# Static asset caching
+/openclaw/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/openclaw/img/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Security headers (all pages)
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

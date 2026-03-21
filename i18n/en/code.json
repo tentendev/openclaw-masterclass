@@ -458,5 +458,95 @@
   },
   "homepage.latestNews.viewAll": {
     "message": "View All Posts"
+  },
+  "homepage.quote.text": {
+    "message": "Probably the single most important release of software ever"
+  },
+  "homepage.quote.attribution": {
+    "message": "Jensen Huang, CEO of NVIDIA — GTC 2026"
+  },
+  "homepage.march.label": {
+    "message": "Latest Updates"
+  },
+  "homepage.march.title": {
+    "message": "What's New in March 2026"
+  },
+  "homepage.march.highlight1": {
+    "message": "NemoClaw announced at NVIDIA GTC"
+  },
+  "homepage.march.highlight2": {
+    "message": "250K+ GitHub Stars milestone reached"
+  },
+  "homepage.march.highlight3": {
+    "message": "ClawHavoc security patch released"
+  },
+  "homepage.march.highlight4": {
+    "message": "5 new flagship LLM models supported"
+  },
+  "homepage.march.cta": {
+    "message": "See Full Changelog"
+  },
+  "homepage.course.sectionTitle": {
+    "message": "MasterClass Modules"
+  },
+  "homepage.course.sectionSubtitle": {
+    "message": "Six structured modules from fundamentals to production-grade expertise"
+  },
+  "homepage.course.mod1.title": {
+    "message": "Architecture Deep Dive"
+  },
+  "homepage.course.mod1.desc": {
+    "message": "Understand the OpenClaw core architecture, event pipeline, and plugin system from the ground up."
+  },
+  "homepage.course.mod2.title": {
+    "message": "Your First Skill"
+  },
+  "homepage.course.mod2.desc": {
+    "message": "Build, test, and publish a Skill from scratch with step-by-step guidance."
+  },
+  "homepage.course.mod3.title": {
+    "message": "Multi-Platform Deploy"
+  },
+  "homepage.course.mod3.desc": {
+    "message": "Deploy OpenClaw across Slack, Discord, Teams, and LINE with unified configuration."
+  },
+  "homepage.course.mod4.title": {
+    "message": "Gateway API & Routing"
+  },
+  "homepage.course.mod4.desc": {
+    "message": "Master the Gateway API for traffic management, rate limiting, and intelligent routing."
+  },
+  "homepage.course.mod5.title": {
+    "message": "LLM Integration"
+  },
+  "homepage.course.mod5.desc": {
+    "message": "Connect OpenClaw to GPT-4o, Claude, Gemini, and open-source models via a unified interface."
+  },
+  "homepage.course.mod6.title": {
+    "message": "Security Hardening"
+  },
+  "homepage.course.mod6.desc": {
+    "message": "Implement best practices for Skill vetting, sandboxing, secret management, and audit logging."
+  },
+  "homepage.course.difficulty.beginner": {
+    "message": "Beginner"
+  },
+  "homepage.course.difficulty.intermediate": {
+    "message": "Intermediate"
+  },
+  "homepage.course.difficulty.advanced": {
+    "message": "Advanced"
+  },
+  "homepage.course.viewModule": {
+    "message": "View Module"
+  },
+  "homepage.security.title": {
+    "message": "Security First"
+  },
+  "homepage.security.description": {
+    "message": "The ClawHavoc vulnerability highlighted the critical importance of Skill vetting and sandboxing. Always review third-party Skills before installation, enable audit logging, and keep your OpenClaw instance up to date with the latest security patches."
+  },
+  "homepage.security.cta": {
+    "message": "Security Best Practices"
   }
 }

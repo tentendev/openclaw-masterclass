@@ -458,5 +458,95 @@
   },
   "homepage.latestNews.viewAll": {
     "message": "查看全部文章"
+  },
+  "homepage.quote.text": {
+    "message": "这可能是有史以来最重要的软件发布"
+  },
+  "homepage.quote.attribution": {
+    "message": "Jensen Huang，NVIDIA CEO — GTC 2026"
+  },
+  "homepage.march.label": {
+    "message": "最新动态"
+  },
+  "homepage.march.title": {
+    "message": "2026 年 3 月新动态"
+  },
+  "homepage.march.highlight1": {
+    "message": "NemoClaw 在 NVIDIA GTC 上发布"
+  },
+  "homepage.march.highlight2": {
+    "message": "GitHub Stars 突破 25 万"
+  },
+  "homepage.march.highlight3": {
+    "message": "ClawHavoc 安全补丁已发布"
+  },
+  "homepage.march.highlight4": {
+    "message": "新增 5 个旗舰 LLM 模型支持"
+  },
+  "homepage.march.cta": {
+    "message": "查看完整更新日志"
+  },
+  "homepage.course.sectionTitle": {
+    "message": "MasterClass 课程模块"
+  },
+  "homepage.course.sectionSubtitle": {
+    "message": "从基础到生产级专业知识的六个体系化模块"
+  },
+  "homepage.course.mod1.title": {
+    "message": "架构深度解析"
+  },
+  "homepage.course.mod1.desc": {
+    "message": "从底层理解 OpenClaw 核心架构、事件管道和插件系统。"
+  },
+  "homepage.course.mod2.title": {
+    "message": "你的第一个 Skill"
+  },
+  "homepage.course.mod2.desc": {
+    "message": "通过分步指导，从零开始构建、测试和发布一个 Skill。"
+  },
+  "homepage.course.mod3.title": {
+    "message": "多平台部署"
+  },
+  "homepage.course.mod3.desc": {
+    "message": "使用统一配置将 OpenClaw 部署到 Slack、Discord、Teams 和 LINE。"
+  },
+  "homepage.course.mod4.title": {
+    "message": "Gateway API 与路由"
+  },
+  "homepage.course.mod4.desc": {
+    "message": "掌握 Gateway API 的流量管理、速率限制和智能路由功能。"
+  },
+  "homepage.course.mod5.title": {
+    "message": "LLM 集成"
+  },
+  "homepage.course.mod5.desc": {
+    "message": "通过统一接口将 OpenClaw 连接到 GPT-4o、Claude、Gemini 和开源模型。"
+  },
+  "homepage.course.mod6.title": {
+    "message": "安全加固"
+  },
+  "homepage.course.mod6.desc": {
+    "message": "实施 Skill 审查、沙箱隔离、密钥管理和审计日志的最佳实践。"
+  },
+  "homepage.course.difficulty.beginner": {
+    "message": "入门"
+  },
+  "homepage.course.difficulty.intermediate": {
+    "message": "中级"
+  },
+  "homepage.course.difficulty.advanced": {
+    "message": "高级"
+  },
+  "homepage.course.viewModule": {
+    "message": "查看模块"
+  },
+  "homepage.security.title": {
+    "message": "安全第一"
+  },
+  "homepage.security.description": {
+    "message": "ClawHavoc 漏洞凸显了 Skill 审查和沙箱隔离的关键重要性。安装第三方 Skill 前务必审查，启用审计日志，并确保 OpenClaw 实例始终更新到最新的安全补丁。"
+  },
+  "homepage.security.cta": {
+    "message": "安全最佳实践"
   }
 }
