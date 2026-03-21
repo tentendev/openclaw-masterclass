@@ -1,47 +1,26 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
-import Image from '@theme/IdealImage'
-import useBaseUrl from '@docusaurus/useBaseUrl'
 import { cn } from '@/lib/utils'
 import { AnimatedGradientText } from '@/components/ui/animated-gradient-text'
 
-const FrameworkPill = ({ framework }) => {
-  return (
-    <div className='inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 transition-all duration-200 hover:scale-105 hover:border-gray-300 hover:bg-white hover:shadow-md dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:bg-gray-900'>
-      <Image
-        img={useBaseUrl(framework.icon)}
-        alt={framework.name}
-        className='mr-1.5 h-4 w-4 sm:mr-2'
-      />
-      <span className='text-sm font-semibold text-gray-700 sm:text-sm dark:text-gray-300'>
-        {framework.name}
-      </span>
-    </div>
-  )
-}
+const StatItem = ({ value, label }) => (
+  <div className='flex flex-col items-center px-4 py-2 sm:px-6'>
+    <span className='text-lg font-bold text-gray-900 sm:text-xl dark:text-white'>{value}</span>
+    <span className='text-xs text-gray-500 sm:text-sm dark:text-gray-400'>{label}</span>
+  </div>
+)
 
 export default function HeroBanner() {
-  const frameworks = [
-    {
-      id: 'docusaurus',
-      icon: '/img/logo.svg',
-      name: 'Docusaurus'
-    },
-    {
-      id: 'react',
-      icon: '/img/react.svg',
-      name: 'React'
-    },
-    {
-      id: 'tailwind',
-      icon: '/img/tailwind.svg',
-      name: 'Tailwind CSS'
-    }
+  const stats = [
+    { value: '250K+', label: 'GitHub Stars' },
+    { value: '13,000+', label: 'Skills' },
+    { value: '20+', label: '通訊平台' },
+    { value: '5', label: 'Languages' }
   ]
 
   return (
     <div>
-      <div className='px-4 py-8 sm:py-12'>
+      <div className='px-4 py-8 sm:py-16'>
         <div className='mx-auto max-w-7xl'>
           <div className='text-center'>
             <div className='group relative mx-auto flex w-max items-center justify-center rounded-full bg-white px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] dark:bg-transparent'>
@@ -58,34 +37,37 @@ export default function HeroBanner() {
                 }}
               />
               <AnimatedGradientText className='text-sm font-medium'>
-                🚀 Built with Modern Web Technologies
+                🦞 全球最完整的 OpenClaw 學習平台
               </AnimatedGradientText>
             </div>
 
-            <h1 className='mt-4 mb-4 text-[28px] leading-tight font-bold text-gray-900 sm:mt-6 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white'>
-              Powerful Documentation/Blog
-              <br className='hidden sm:block' />
-              <span className='sm:hidden'> </span>with Modern Frameworks
+            <h1 className='mt-4 mb-4 text-[32px] leading-tight font-bold text-gray-900 sm:mt-6 sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl dark:text-white'>
+              OpenClaw MasterClass 🦞
             </h1>
 
-            <p className='mx-auto mb-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:mb-8 sm:text-lg dark:text-gray-300'>
-              A modern documentation/blog template built with Docusaurus, styled with Tailwind CSS,
-              and enhanced with React components for the best developer experience.
+            <p className='mx-auto mb-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:mb-8 sm:text-lg md:text-xl dark:text-gray-300'>
+              全球最完整的 OpenClaw 學習資源中心
             </p>
 
             <div className='flex flex-wrap justify-center gap-4'>
-              {frameworks.map((framework) => (
-                <FrameworkPill key={framework.id} framework={framework} />
-              ))}
+              <Link
+                to='/docs/masterclass/overview'
+                className='inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-primary/90 hover:text-white hover:no-underline hover:shadow-lg sm:text-base'
+              >
+                開始學習 MasterClass
+              </Link>
+              <Link
+                to='/docs/getting-started/installation'
+                className='inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:text-gray-900 hover:no-underline hover:shadow-md dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white sm:text-base'
+              >
+                快速開始
+              </Link>
             </div>
 
-            <div className='mt-6'>
-              <Link
-                href='https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template'
-                className='text-blue-700 dark:text-green-700'
-              >
-                👉 Please read README.md for more about project information
-              </Link>
+            <div className='mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center divide-x divide-gray-200 rounded-xl border border-gray-200 bg-white/80 py-2 shadow-sm backdrop-blur-sm sm:mt-12 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800/80'>
+              {stats.map((stat, index) => (
+                <StatItem key={index} value={stat.value} label={stat.label} />
+              ))}
             </div>
           </div>
         </div>

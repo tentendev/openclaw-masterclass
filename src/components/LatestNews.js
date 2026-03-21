@@ -38,22 +38,25 @@ function RecentBlogPostCard({ recentPost }) {
 
         <p className='mt-2 mb-4 line-clamp-2 dark:text-gray-400'>{blogData.metadata.description}</p>
         <div className='*:data-[slot=avatar]:ring-background flex items-center -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale'>
-          {blogData.metadata.authors.map((author, index) => (
-            <Link
-              href={author.page.permalink}
-              title={author.name}
-              key={index}
-              className='transition-opacity hover:opacity-80'
-            >
-              <Avatar>
-                <Image
-                  alt={author.name}
-                  img={useBaseUrl(author.imageURL)}
-                  className='aspect-square h-full w-full'
-                />
-              </Avatar>
-            </Link>
-          ))}
+          {blogData.metadata.authors.map((author, index) => {
+            const authorLink = author.page?.permalink || author.url || '#'
+            return (
+              <Link
+                href={authorLink}
+                title={author.name}
+                key={index}
+                className='transition-opacity hover:opacity-80'
+              >
+                <Avatar>
+                  <Image
+                    alt={author.name}
+                    img={useBaseUrl(author.imageURL)}
+                    className='aspect-square h-full w-full'
+                  />
+                </Avatar>
+              </Link>
+            )
+          })}
 
           <div className='ml-4 text-sm dark:text-gray-400'>
             <span>
@@ -72,8 +75,8 @@ export default function LatestNews({ homePageBlogMetadata, recentPosts }) {
   return (
     <div className='mx-auto my-16 max-w-7xl px-4'>
       <div className='mb-16 text-center'>
-        <h2 className='mb-4 text-3xl font-bold'>{homePageBlogMetadata.blogTitle}</h2>
-        <p>{homePageBlogMetadata.blogDescription}</p>
+        <h2 className='mb-4 text-3xl font-bold'>最新消息</h2>
+        <p className='text-gray-600 dark:text-gray-400'>OpenClaw 社群最新動態與教學文章</p>
       </div>
 
       <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3'>
@@ -87,7 +90,7 @@ export default function LatestNews({ homePageBlogMetadata, recentPosts }) {
       <div className='mt-8 text-center'>
         <Button asChild>
           <Link to={homePageBlogMetadata.path} className='hover:text-primary-foreground'>
-            See all
+            查看全部文章
           </Link>
         </Button>
       </div>

@@ -1,556 +1,351 @@
-# Integrating TailwindCSS & Shadcn/UI with Docusaurus
+# 🦞 OpenClaw MasterClass
 
-This project demonstrates how to integrate TailwindCSS and Shadcn/UI with Docusaurus V3, creating a modern documentation website with beautiful, accessible UI components. Perfect for technical documentation, api docs, blogs, and project websites.
+**The most comprehensive OpenClaw learning hub** — a community-driven, multilingual documentation site covering everything from getting started to enterprise-grade deployments.
 
-[**View Demo →**](https://docusaurus-tailwind-shadcn-template.netlify.app)
+[![CI](https://github.com/tenten/openclaw-masterclass/actions/workflows/ci.yml/badge.svg)](https://github.com/tenten/openclaw-masterclass/actions/workflows/ci.yml)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)](https://openclaw-masterclass.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Technology Stack
+> **Live site:** [https://openclaw-masterclass.vercel.app](https://openclaw-masterclass.vercel.app)
 
-- ⚡️ Docusaurus V3
-- 🎨 TailwindCSS for styling (Support v3 and v4)
-- 🧩 Shadcn/UI components
-- 🔍 `@easyops-cn/docusaurus-search-local` for search functionality
-- 📝 Support generation API Docs by `@PaloAltoNetworks/docusaurus-openapi-docs` plugin
-- 📱 Fully responsive design
-- 🌗 Light/dark mode support
+---
 
-## Key Features
+## Table of Contents
 
-- **Modern Component Library**: Shadcn/UI integration provides beautiful, accessible components
-- **Customizable Styling**: TailwindCSS enables rapid styling and customization
-- **Full-Text Search**: Local search functionality powered by @easyops-cn/docusaurus-search-local
-- **Dark Mode**: Seamless dark mode support with Docusaurus and Shadcn/UI
-- **Performance Optimized**: Built with performance best practices
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Local Development](#local-development)
+- [Build](#build)
+- [Internationalization (i18n)](#internationalization-i18n)
+- [Search Configuration](#search-configuration)
+- [OpenAPI Docs Workflow](#openapi-docs-workflow)
+- [Vercel Deployment](#vercel-deployment)
+- [Content Maintenance Guide](#content-maintenance-guide)
+- [Contributing](#contributing)
+- [License](#license)
 
-The website also features a new blog UI was built using TailwindCSS & Shadcn/UI components and provides a modern, clean interface for displaying blog posts. The blog posts are managed by a custom blog plugin, defined in `src/plugins/blog-plugin.js` and homepage config in `components/Homepage/index.js`.
+---
 
-Website has integrated OpenAPI Docs by `@PaloAltoNetworks/docusaurus-openapi-docs` plugin. You can see the API Docs in [API Docs](https://docusaurus-openapi.tryingpan.dev/).
+## Overview
 
-## Quick Start
+OpenClaw MasterClass is a Docusaurus v3 documentation site that provides:
 
-- To use this template (docs/blog) with Tailwind v3, switch to the `feature/docusaurus-tailwind-v3` branch.
+- **12-module MasterClass curriculum** — from foundations through enterprise-grade topics
+- **Top 50 Skills directory** — curated ranking of the most useful OpenClaw skills
+- **API reference docs** — auto-generated from OpenAPI specs
+- **Community resources** — Reddit showcases, Discord links, learning paths
+- **Multilingual support** — 5 locales with Traditional Chinese as default
+- **Blog** — news, tutorials, and community highlights
 
-```bash
-git clone -b feature/docusaurus-tailwind-v3 https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git
-```
+The site is **not** an official OpenClaw property; it is a community-maintained learning resource.
 
-- To use this template (docs, api docs and blog) with Tailwind v3, switch to the `feature/docusaurus-tailwind-v3-openapi-docs` branch.
+---
 
-```bash
-git clone -b feature/docusaurus-tailwind-v3-openapi-docs https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git
-```
+## Tech Stack
 
-- To use this template (docs/blog) with Tailwind v4, switch to the `feature/docusaurus-tailwind-v4` branch.
+| Layer            | Technology                                                                 |
+| ---------------- | -------------------------------------------------------------------------- |
+| Framework        | [Docusaurus v3](https://docusaurus.io/) (with `experimental_faster` mode) |
+| Styling          | [Tailwind CSS v4](https://tailwindcss.com/) via PostCSS                   |
+| UI Components    | [shadcn/ui](https://ui.shadcn.com/) (Radix + CVA)                        |
+| Search           | [@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local) |
+| API Docs         | [docusaurus-plugin-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) |
+| Image Optimization | @docusaurus/plugin-ideal-image                                          |
+| Deployment       | [Vercel](https://vercel.com/)                                             |
+| Runtime          | Node.js 22+                                                               |
 
-```bash
-git clone -b feature/docusaurus-tailwind-v4 https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git
-```
-
-- To use this template (docs, api docs and blog) with Tailwind v4, use `main` branch or switch to the `feature/docusaurus-tailwind-v4-openapi-docs` branch.
-
-```bash
-git clone -b feature/docusaurus-tailwind-v4-openapi-docs https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git
-```
-
-## Deployments
-
-### Vercel
-
-You can get started by creating your own Docusaurus website and deploy to Vercel by clicking the link:
-
-[![clone](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fnamnguyenthanhwork%2Fdocusaurus-tailwind-shadcn-template&showOptionalTeamCreation=false)
-
-Vercel will copy the [Docusaurus TailwindCSS Shadcn/ui](https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template) and deploy the website for you. Once completed, every commit in the repo will be deployed automatically.
-
-## Cloudflare Pages
-
-Go to the platform of your choice and follow the instructions to deploy a new site from a Git repository.
-
-Notice: Use yarn instead of npm for Cloudflare Pages.
-
-### Netlify and Others
-
-Go to the platform of your choice and follow the instructions to deploy a new site from a Git repository.
+---
 
 ## Local Development
 
-1. Clone the repository:
+### Prerequisites
+
+- **Node.js 22+** (check with `node -v`)
+- **npm 10+** (ships with Node 22)
+- Git
+
+### Setup
 
 ```bash
-git clone https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git
-cd docusaurus-tailwind-shadcn-template
-```
+# 1. Clone the repository
+git clone https://github.com/tenten/openclaw-masterclass.git
+cd openclaw-masterclass
 
-2. Install dependencies:
-
-```bash
+# 2. Install dependencies
 npm install
-```
 
-3. Start the development server:
-
-```bash
+# 3. Start the dev server (default locale: zh-Hant)
 npm start
 ```
 
-4. Build for production:
+The dev server runs at `http://localhost:3000` with hot-reload enabled.
+
+To start in a specific locale:
 
 ```bash
-npm run build
+npm start -- --locale en
 ```
 
-5. Serve the production build:
+---
+
+## Build
 
 ```bash
+# Build all locales (zh-Hant, en, ja, zh-Hans, ko)
+npm run build
+
+# Build only the default locale (faster, good for CI)
+npm run build -- --locale zh-Hant
+
+# Preview the production build locally
 npm run serve
 ```
 
-## Project Structure
+The output is written to the `build/` directory.
+
+---
+
+## Internationalization (i18n)
+
+The site supports **5 locales**:
+
+| Locale    | Label    | Status  |
+| --------- | -------- | ------- |
+| `zh-Hant` | 繁體中文 | Default |
+| `en`      | English  |         |
+| `ja`      | 日本語   |         |
+| `zh-Hans` | 简体中文 |         |
+| `ko`      | 한국어   |         |
+
+### Adding / updating translations
+
+1. **Extract translatable strings** into JSON files:
+
+   ```bash
+   npm run write-translations -- --locale <locale>
+   ```
+
+   This generates files under `i18n/<locale>/`.
+
+2. **Translate content docs** by placing translated Markdown files in:
+
+   ```
+   i18n/<locale>/docusaurus-plugin-content-docs/current/
+   ```
+
+3. **Translate blog posts** by placing them in:
+
+   ```
+   i18n/<locale>/docusaurus-plugin-content-blog/
+   ```
+
+4. **Translate theme strings** (navbar, footer, etc.) by editing:
+
+   ```
+   i18n/<locale>/docusaurus-theme-classic/*.json
+   ```
+
+5. **Test a specific locale** locally:
+
+   ```bash
+   npm start -- --locale ja
+   ```
+
+Refer to the [Docusaurus i18n guide](https://docusaurus.io/docs/i18n/tutorial) for full details.
+
+---
+
+## Search Configuration
+
+Full-text local search is provided by `@easyops-cn/docusaurus-search-local`. Configuration lives in `docusaurus.config.js` under `themes`:
+
+- Indexes both docs (`/docs`) and blog (`/blog`)
+- Supports English and Chinese tokenization (`language: ['en', 'zh']`)
+- Hashed index files for cache-busting
+- Keyboard shortcut enabled (Ctrl/Cmd+K)
+- Results limited to 8 items with 50-character context snippets
+
+No external search service or API key is required.
+
+---
+
+## OpenAPI Docs Workflow
+
+API reference pages are auto-generated from OpenAPI spec files using `docusaurus-plugin-openapi-docs`.
+
+### Spec location
+
+```
+openapi/openclaw-gateway.yaml
+```
+
+### Generate API docs
 
 ```bash
-docusaurus-tailwind-shadcn-template/
-├── api-swagger/         # API Swagger files - generate API Docs (if using @PaloAltoNetworks/docusaurus-openapi-docs)
-├── blog/
-├── docs/
-├── src/
-│   ├── components/
-│   │   └── ui/           # Shadcn/UI components
-│   ├── css/
-│   │   └── custom.css    # TailwindCSS config and custom styles
-│   ├── lib/
-│   │   └── utils.ts      # Utility functions
-│   ├── pages/            # React pages
-│   ├── plugins/          # Docusaurus plugins
-│   └── theme/            # Docusaurus theme customization
-├── static/               # Static assets
-├── tailwind.config.js    # TailwindCSS configuration (if using v3, removed in v4)
-├── postcss.config.js     # PostCSS configuration
-└── docusaurus.config.js  # Docusaurus configuration
+# Generate MDX pages from the spec
+npm run gen-api-docs openclaw_gateway
+
+# Clean generated pages (before regenerating)
+npm run clean-api-docs openclaw_gateway
 ```
 
-## Configuration
+Generated MDX files are written to `docs/architecture/api-generated/` and appear in the sidebar automatically.
 
-### TailwindCSS Setup
+### Workflow for updating API docs
 
-The project includes a custom TailwindCSS configuration optimized for Docusaurus:
+1. Update (or replace) the OpenAPI spec at `openapi/openclaw-gateway.yaml`.
+2. Run `npm run clean-api-docs openclaw_gateway` to remove stale pages.
+3. Run `npm run gen-api-docs openclaw_gateway` to regenerate.
+4. Verify locally with `npm start`, then commit all changes.
 
-In v3, you can customize the TailwindCSS configuration in `tailwind.config.js`.
+The theme `docusaurus-theme-openapi-docs` provides the `ApiItem` component, interactive "Try it" panels, and language tabs (curl, Python, Node.js, Go).
 
-```javascript
-// tailwind.config.js
-module.exports = {
-  corePlugins: {
-    preflight: false
-  },
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    './docs/**/*.{js,jsx,ts,tsx}',
-    './blog/**/*.{js,jsx,ts,tsx}'
-  ],
-  darkMode: ['class', '[data-theme="dark"]'] // Support Docusaurus dark mode
-  // ... rest of the configuration
-}
-```
+---
 
-In v4, you can customize the TailwindCSS configuration in `custom.css`. The `tailwind.config.js` file is removed in v4.
+## Vercel Deployment
 
-Read more about [TailwindCSS v4](https://tailwindcss.com/blog/tailwindcss-v4).
+### Configuration
 
-### Shadcn/UI Components
-
-All Shadcn/UI components are located in `src/components/ui/`. To use a component:
-
-```tsx
-import { Button } from '@/components/ui/button'
-
-function MyComponent() {
-  return <Button variant='outline'>Click me</Button>
-}
-```
-
-**Note:** Because Docusaurus doesn't support CLI installation for Shadcn/UI, you'll need to manually copy the components and adjust the import paths.
-
-### Alias Configuration
-
-This project includes configured path aliases to simplify imports and improve code organization. The aliases are set up in two places:
-
-#### 1. JSConfig Configuration (`jsconfig.json`)
-
-The `jsconfig.json` file provides TypeScript-like path mapping for better IDE support and IntelliSense:
+The project includes a `vercel.json`:
 
 ```json
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@css/*": ["src/css/*"],
-      "@lib/*": ["src/lib/*"],
-      "@pages/*": ["src/pages/*"],
-      "@plugins/*": ["src/plugins/*"],
-      "@theme/*": ["src/theme/*"]
-    }
-  }
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install",
+  "framework": "docusaurus-2"
 }
 ```
 
-#### 2. Webpack Alias Configuration (`src/plugins/webpack-alias.js`)
+### Custom domain
 
-The webpack alias plugin ensures that these paths work at build time:
+The production URL is `https://openclaw-masterclass.vercel.app`. To add a custom domain, configure it in the Vercel dashboard under **Settings > Domains** and update the `url` field in `docusaurus.config.js`.
 
-```javascript
-const path = require('path')
+### Preview deployments
 
-module.exports = function () {
-  return {
-    name: 'webpack-alias-plugin',
-    configureWebpack() {
-      return {
-        resolve: {
-          alias: {
-            '@': path.resolve(__dirname, '../'),
-            '@components': path.resolve(__dirname, '../components'),
-            '@css': path.resolve(__dirname, '../css'),
-            '@lib': path.resolve(__dirname, '../lib'),
-            '@pages': path.resolve(__dirname, '../pages'),
-            '@plugins': path.resolve(__dirname, '../plugins'),
-            '@theme': path.resolve(__dirname, '../theme')
-          }
-        }
-      }
-    }
-  }
-}
-```
+Every pull request automatically gets a unique preview URL from Vercel. Use these to review changes before merging to `main`.
 
-#### Usage Examples
+### Environment
 
-With these aliases, you can use cleaner import statements:
+No environment variables are required for the build. The site is fully static.
 
-```tsx
-// Instead of relative imports like this:
-import { Button } from '../../../components/ui/button'
-import { cn } from '../../../lib/utils'
+---
 
-// You can use alias imports:
-import { Button } from '@components/ui/button'
-import { cn } from '@lib/utils'
-```
+## Content Maintenance Guide
 
-### Search Configuration
+### Adding a new doc page
 
-The local search is configured in `docusaurus.config.js`:
+1. Create a Markdown or MDX file under the appropriate `docs/` subdirectory:
+   ```
+   docs/masterclass/module-XX-topic.md
+   ```
+2. Include frontmatter:
+   ```yaml
+   ---
+   sidebar_position: 1
+   title: "Your Page Title"
+   description: "A short description for SEO."
+   ---
+   ```
+3. The page appears in the sidebar automatically (autogenerated sidebars) or can be referenced in `sidebars.js`.
 
-```javascript
-themes: [
-  [
-    require.resolve('@easyops-cn/docusaurus-search-local'),
-    {
-      indexPages: true,
-      docsRouteBasePath: '/docs',
-      hashed: true,
-      language: ['en'],
-      highlightSearchTermsOnTargetPage: false,
-      searchResultContextMaxLength: 50,
-      searchResultLimits: 8,
-      searchBarShortcut: true,
-      searchBarShortcutHint: true
-    }
-  ]
-],
-```
+### Adding a blog post
 
-### OpenAPI Docs Configuration
+1. Create a file in `blog/` following the naming convention:
+   ```
+   blog/YYYY-MM-DD-slug/index.md
+   ```
+2. Include frontmatter:
+   ```yaml
+   ---
+   title: "Post Title"
+   authors: [your-name]
+   tags: [openclaw, tutorial]
+   ---
+   ```
+3. Add a `<!-- truncate -->` marker to control the excerpt shown on the blog listing page.
 
-The [docusaurus-plugin-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) package extends the Docusaurus CLI with commands for generating MDX using the OpenAPI specification as the source. The resulting MDX is fully compatible with [plugin-content-docs](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs) and can be used to render beautiful reference API docs when combined with the `docusaurus-theme-openapi-docs` theme.
+### Updating the Top 50 Skills
 
-If you don't have `docusaurus-plugin-openapi-docs` and `docusaurus-theme-openapi-docs` installed, you can install it by running:
+Edit or add files under `docs/top-50-skills/`. Each skill should follow the existing template with metadata (rank, category, use case, setup instructions).
 
-```bash
-npm install docusaurus-openapi-docs docusaurus-theme-openapi-docs
-```
+### Updating the MasterClass modules
 
-#### Configuration Generator
+Module docs live under `docs/masterclass/`. Each module file (`module-01-foundations.md`, etc.) corresponds to a navbar dropdown entry. Update content directly, and the navbar links in `docusaurus.config.js` if you add new modules.
 
-**Required:** You must have `.yaml` files in the `api-swagger` directory. The plugin will generate API docs based on these files.
+### Adding images
 
-Here is an example of properly configuring `docusaurus.config.js` for `docusaurus-plugin-openapi-docs` and `docusaurus-theme-openapi-docs` usage.
+Place images in `static/img/` and reference them with absolute paths (`/img/my-image.png`) in Markdown. For optimized images, use the `@docusaurus/plugin-ideal-image` component.
 
-```javascript
-// docusaurus.config.js
-{
-  presets: [
-    [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          docItemComponent: '@theme/ApiItem' // Derived from docusaurus-theme-openapi
-        },
-        blog: false,
-        theme: { customCss: './src/css/custom.css' }
-      })
-    ]
-  ],
-
-  plugins: [
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: 'openapi',
-        docsPluginId: 'classic',
-        config: {
-          // if your API spec has multiple versions, you can use the following configuration
-          petstore_versioned: {
-            specPath: 'api-swagger/petstore.yaml', // Path to your API spec
-            outputDir: 'docs/petstore_versioned', // No trailing slash
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-              categoryLinkSource: 'tag'
-            },
-            version: '2.0.0', // Current version
-            label: 'v2.0.0', // Current version label
-            baseUrl: '/docs/petstore_versioned/swagger-petstore-yaml', // Leading slash is important
-            downloadUrl:
-              'https://raw.githubusercontent.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/main/api-swagger/petstore.yaml',
-            versions: {
-              '1.0.0': {
-                specPath: 'api-swagger/petstore-1.0.0.yaml', // Path to your API spec
-                outputDir: 'docs/petstore_versioned/1.0.0', // No trailing slash
-                label: 'v1.0.0',
-                baseUrl: '/docs/petstore_versioned/1.0.0/swagger-petstore-yaml', // Leading slash is important
-                downloadUrl:
-                  'https://raw.githubusercontent.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/main/api-swagger/petstore-1.0.0.yaml'
-              }
-            }
-          }
-          // if your API spec is a single version, you can use the following configuration
-          petstore: {
-            specPath: 'api-swagger/petstore.yaml', // Path to your API spec
-            outputDir: 'docs/petstore', // No trailing slash
-            sidebarOptions: { groupPathsBy: 'tag', categoryLinkSource: 'tag' },
-            downloadUrl: '/petstore.yaml',
-            hideSendButton: false,
-            showSchemas: true
-          }
-        }
-      }
-    ],
-  ],
-  themes: ["docusaurus-theme-openapi-docs"], // export theme components
-}
-```
-
-Add prism and language support in `docusaurus.config.js`: see sample code in `docusaurus.config.js - themeConfig`.
-
-#### Generating and Cleaning API Docs
-
-Add scripts to `package.json` if not exist:
-
-```json
-"scripts": {
-    "gen-api-docs": "docusaurus gen-api-docs",
-    "clean-api-docs": "docusaurus clean-api-docs",
-    "gen-api-docs:version": "docusaurus gen-api-docs:version",
-    "clean-api-docs:version": "docusaurus clean-api-docs:version"
-}
-```
-
-Generating versioned API docs example (current version):
-
-```bash
-npm run gen-api-docs <id config>
-```
-
-Generating all Petstore versioned API docs (exclude current version):
-
-```bash
-npm run gen-api-docs:version petstore:all
-```
-
-Cleaning versioned API docs example:
-
-```bash
-npm run clean-api-docs <id config>
-```
-
-or delete the `docs/<id>` directory manually.
-
-#### API Docs Sidebar
-
-You can customize the API Docs sidebar by editing the `sidebars.js` file.
-
-```javascript
-// sidebars.js
-import petstoreVersions from './docs/petstore_versioned/versions.json' // import if using multi versioned sidebar
-
-import { versionCrumb, versionSelector } from 'docusaurus-plugin-openapi-docs/lib/sidebars/utils'
-
-import petstoreVersionedSidebar from './docs/petstore_versioned/sidebar' // import when run generate API Docs command
-import petstoreVersionSidebar from './docs/petstore_versioned/1.0.0/sidebar' // import when run generate API Docs command
-
-const sidebars = {
-  // sidebar for docs
-  'tutorialSidebar': [
-    'intro',
-    {
-      type: 'category',
-      label: 'Tutorial - Basics',
-      items: [
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/deploy-your-site',
-        'tutorial-basics/congratulations'
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Tutorial - Extras',
-      items: ['tutorial-extras/manage-docs-versions', 'tutorial-extras/translate-your-site']
-    }
-  ],
-
-  // sidebar for api docs
-  // single versioned sidebar
-  // 'openApiSidebar': [
-  //   {
-  //     type: 'category',
-  //     label: 'Petstore',
-  //     link: {
-  //       type: 'generated-index',
-  //       title: 'Petstore API',
-  //       description:
-  //         'This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.',
-  //       slug: '/category/petstore-api'
-  //     },
-  //     items: petstoreVersionedSidebar // import when run generate API Docs command
-  //   }
-  // ],
-
-  // multi versioned sidebar
-  'petstore-2.0.0': [
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionSelector(petstoreVersions), // import if using multi versioned sidebar
-      className: 'version-button'
-    },
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionCrumb(`v2.0.0`)
-    },
-    {
-      type: 'category',
-      label: 'Petstore',
-      link: {
-        type: 'generated-index',
-        title: 'Petstore API (latest)',
-        description:
-          'This is a sample server Petstore server. Generated by @docusaurus-plugin-openapi-docs plugin. Read more: https://github.com/PaloAltoNetworks/docusaurus-openapi-docs',
-        slug: '/category/petstore-versioned-api'
-      },
-      items: petstoreVersionedSidebar // import when run generate API Docs command
-    }
-  ],
-
-  'petstore-1.0.0': [
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionSelector(petstoreVersions), // import if using multi versioned sidebar
-      className: 'version-button'
-    },
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionCrumb(`v1.0.0`)
-    },
-    {
-      type: 'category',
-      label: 'Petstore',
-      link: {
-        type: 'generated-index',
-        title: 'Petstore API (v1.0.0)',
-        description:
-          'This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.',
-        slug: '/category/petstore-api-1.0.0'
-      },
-      items: petstoreVersionSidebar // import when run generate API Docs command
-    }
-  ]
-}
-
-export default sidebars
-```
-
-👉 Read more config about [docusaurus-plugin-openapi-docs](https://docusaurus-openapi.tryingpan.dev/)
-
-## Customization theme
-
-1. Modify colors in `tailwind.config.js` (v3) or `src/css/custom.css` (v4)
-2. Update CSS variables in `src/css/custom.css`
-3. Customize Shadcn/UI components in `src/components/ui/`
-
-### Adding New Components
-
-1. Create component in `src/components/ui/` or `src/components/`
-2. Import and use in your pages/docs
-
-Example:
-
-```tsx
-// src/components/ui/custom-button.tsx
-import { Button } from '@/components/ui/button'
-
-export function CustomButton({ children }) {
-  return <Button className='custom-styles'>{children}</Button>
-}
-```
-
-### Overriding Docusaurus Components
-
-You can override Docusaurus components by Swizzling. Read more about [Component Swizzling](https://docusaurus.io/docs/swizzling).
+---
 
 ## Contributing
 
-We welcome contributions! Please follow these steps:
+We welcome contributions from the community. Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+### How to contribute
 
-## Support
+1. **Fork** the repository.
+2. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes** — docs, code, translations, or bug fixes.
+4. **Test locally:**
+   ```bash
+   npm start
+   npm run build -- --locale zh-Hant
+   ```
+5. **Commit** with a clear message describing the change.
+6. **Push** your branch and open a **Pull Request** against `main`.
 
-- 📚 [Docusaurus Documentation](https://docusaurus.io/)
-- 🎨 [Shadcn/UI Documentation](https://ui.shadcn.com/)
-- 🌈 [TailwindCSS Documentation](https://tailwindcss.com/)
-- 📝 [OpenAPI Docs](https://docusaurus-openapi.tryingpan.dev/)
+### Guidelines
+
+- Write in clear, accessible language. The default locale is Traditional Chinese (`zh-Hant`), but English content is also welcome.
+- Keep doc pages focused — one concept per page.
+- Add `sidebar_position` frontmatter to control ordering.
+- Run `npm run build` before submitting to catch broken links or build errors.
+- For translations, follow the [i18n workflow](#internationalization-i18n) above.
+
+---
+
+## Project Structure
+
+```
+openclaw-masterclass/
+├── blog/                    # Blog posts
+├── docs/                    # Documentation pages (MDX/Markdown)
+│   ├── masterclass/         # 12-module MasterClass curriculum
+│   ├── top-50-skills/       # Skill directory
+│   ├── resources/           # Learning resources, API keys guide
+│   ├── communities/         # Community links
+│   ├── reddit/              # Reddit discussion hacks & showcases
+│   ├── architecture/        # Architecture docs + generated API pages
+│   ├── security/            # Security best practices
+│   ├── getting-started/     # Installation & onboarding
+│   └── whats-new/           # Changelog / release notes
+├── openapi/                 # OpenAPI spec files
+│   └── openclaw-gateway.yaml
+├── src/
+│   ├── components/          # React components (including shadcn/ui)
+│   ├── css/                 # Tailwind CSS v4 + custom styles
+│   ├── lib/                 # Utility functions
+│   ├── pages/               # Standalone pages (homepage, etc.)
+│   ├── plugins/             # Custom Docusaurus plugins
+│   └── theme/               # Theme overrides (swizzled components)
+├── static/                  # Static assets (images, favicon)
+├── i18n/                    # Translation files (per locale)
+├── docusaurus.config.js     # Main Docusaurus configuration
+├── sidebars.js              # Sidebar structure
+├── vercel.json              # Vercel deployment config
+├── postcss.config.js        # PostCSS config (Tailwind v4)
+└── package.json
+```
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-Built with ♥ by [namnguyenthanhwork]
-
-## Buy me a coffee
-
-If you find this project helpful, you can buy me a coffee 🙏
-
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-Donate-FF813F.svg)](https://buymeacoffee.com/thanhnamnguyen)
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here. [🙏 Become a sponsor via Buy me a coffee](https://buymeacoffee.com/thanhnamnguyen)
-
-<a href="https://github.com/fthobe" target="_blank"><img src="https://avatars.githubusercontent.com/u/579379" alt="fthobe" width="64px" height="64px" style="border-radius: 50%;" /></a>
-
-## Template similar
-
-- [Docusaurus Material UI Template](https://github.com/namnguyenthanhwork/docusaurus-material-ui-template)
+Copyright 2026 OpenClaw MasterClass Contributors.

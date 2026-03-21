@@ -4,6 +4,7 @@ const defaultBlogPlugin = blogPluginExports.default
 async function blogPluginExtended(...pluginArgs) {
   const blogPluginInstance = await defaultBlogPlugin(...pluginArgs)
   const pluginOptions = pluginArgs[1]
+  const context = pluginArgs[0]
 
   return {
     // Add all properties of the default blog plugin so existing functionality is preserved
@@ -41,9 +42,12 @@ async function blogPluginExtended(...pluginArgs) {
         }
       }
 
+      // Use baseUrl to support i18n locale prefixes
+      const homePath = context.baseUrl || '/'
+
       actions.addRoute({
         // Add route for the home page
-        path: '/',
+        path: homePath,
         exact: true,
 
         // The component to use for the "Home" page route

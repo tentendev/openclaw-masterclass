@@ -11,7 +11,7 @@ export default function Home({ homePageBlogMetadata, recentPosts }) {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description='Description will go into a meta tag in <head />'
+      description='OpenClaw MasterClass — 全球最完整的 OpenClaw 學習資源中心'
     >
       <main className='background-grid background-grid--fade-out'>
         <HeroBanner />

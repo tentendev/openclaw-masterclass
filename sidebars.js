@@ -1,117 +1,122 @@
 // @ts-check
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
-
- @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
- */
-
-import petstoreVersions from './docs/petstore_versioned/versions.json'
-
-import { versionCrumb, versionSelector } from 'docusaurus-plugin-openapi-docs/lib/sidebars/utils'
-
-import petstoreVersionedSidebar from './docs/petstore_versioned/sidebar'
-import petstoreVersionSidebar from './docs/petstore_versioned/1.0.0/sidebar'
-
+/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  'tutorialSidebar': [
+  mainSidebar: [
     'intro',
     {
       type: 'category',
-      label: 'Tutorial - Basics',
+      label: '快速開始',
+      collapsed: false,
       items: [
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/deploy-your-site',
-        'tutorial-basics/congratulations'
-      ]
+        'getting-started/installation',
+        'getting-started/first-setup',
+        'getting-started/connect-channels',
+        'getting-started/choose-llm',
+        'getting-started/soul-md-config',
+      ],
     },
     {
       type: 'category',
-      label: 'Tutorial - Extras',
-      items: ['tutorial-extras/manage-docs-versions', 'tutorial-extras/translate-your-site']
-    }
+      label: 'MasterClass 課程',
+      items: [
+        'masterclass/overview',
+        'masterclass/module-01-foundations',
+        'masterclass/module-02-gateway',
+        'masterclass/module-03-skills-system',
+        'masterclass/module-04-clawhub',
+        'masterclass/module-05-memory',
+        'masterclass/module-06-automation',
+        'masterclass/module-07-browser',
+        'masterclass/module-08-multi-agent',
+        'masterclass/module-09-security',
+        'masterclass/module-10-production',
+        'masterclass/module-11-voice-canvas',
+        'masterclass/module-12-enterprise',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Top 50 必裝 Skills',
+      items: [
+        'top-50-skills/overview',
+        'top-50-skills/productivity',
+        'top-50-skills/development',
+        'top-50-skills/communication',
+        'top-50-skills/research',
+        'top-50-skills/automation',
+        'top-50-skills/ai-ml',
+        'top-50-skills/smart-home',
+        'top-50-skills/media',
+        'top-50-skills/data',
+        'top-50-skills/safety-guide',
+      ],
+    },
+    {
+      type: 'category',
+      label: '資源中心',
+      items: [
+        'resources/official-links',
+        'resources/learning-path',
+        'resources/api-keys-guide',
+        'resources/awesome-lists',
+        'resources/video-tutorials',
+        'resources/books-articles',
+        'resources/tools-ecosystem',
+        'resources/chinese-ecosystem',
+      ],
+    },
+    {
+      type: 'category',
+      label: '社群指南',
+      items: [
+        'communities/top-10',
+        'communities/how-to-engage',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Reddit',
+      items: [
+        'reddit/discussion-hacks',
+        'reddit/top-30-showcases',
+      ],
+    },
+    {
+      type: 'category',
+      label: '架構與 API',
+      items: [
+        'architecture/overview',
+        'architecture/api-reference',
+      ],
+    },
+    {
+      type: 'category',
+      label: '安全性',
+      items: [
+        'security/best-practices',
+        'security/threat-model',
+        'security/skill-audit-checklist',
+      ],
+    },
+    {
+      type: 'category',
+      label: '疑難排解',
+      items: [
+        'troubleshooting/common-issues',
+      ],
+    },
+    {
+      type: 'category',
+      label: '最新消息',
+      items: [
+        'whats-new/march-2026',
+      ],
+    },
+    'glossary',
+    'faq',
+    'methodology',
   ],
-
-  // single versioned sidebar
-  // 'openApiSidebar': [
-  //   {
-  //     type: 'category',
-  //     label: 'Petstore',
-  //     link: {
-  //       type: 'generated-index',
-  //       title: 'Petstore API',
-  //       description:
-  //         'This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.',
-  //       slug: '/category/petstore-api'
-  //     },
-  //     items: petstoreVersionedSidebar
-  //   }
-  // ],
-
-  // multi versioned sidebar
-  'petstore-2.0.0': [
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionSelector(petstoreVersions),
-      className: 'version-button'
-    },
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionCrumb(`v2.0.0`)
-    },
-    {
-      type: 'category',
-      label: 'Petstore',
-      link: {
-        type: 'generated-index',
-        title: 'Petstore API (latest)',
-        description:
-          'This is a sample server Petstore server. Generated by @docusaurus-plugin-openapi-docs plugin. Read more: https://github.com/PaloAltoNetworks/docusaurus-openapi-docs',
-        slug: '/category/petstore-versioned-api'
-      },
-      items: petstoreVersionedSidebar
-    }
-  ],
-
-  'petstore-1.0.0': [
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionSelector(petstoreVersions),
-      className: 'version-button'
-    },
-    {
-      type: 'html',
-      defaultStyle: true,
-      value: versionCrumb(`v1.0.0`)
-    },
-    {
-      type: 'category',
-      label: 'Petstore',
-      link: {
-        type: 'generated-index',
-        title: 'Petstore API (v1.0.0)',
-        description:
-          'This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.',
-        slug: '/category/petstore-api-1.0.0'
-      },
-      items: petstoreVersionSidebar
-    }
-  ]
 }
 
 export default sidebars

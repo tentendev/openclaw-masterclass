@@ -42,22 +42,25 @@ export default function BlogPostItems({ items, component: BlogPostItemComponent 
                 {blog.content.metadata.description}
               </p>
               <div className='*:data-[slot=avatar]:ring-background flex items-center -space-x-2 *:data-[slot=avatar]:size-12 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale'>
-                {blog.content.metadata.authors.map((author, index) => (
-                  <Link
-                    href={author.page.permalink}
-                    title={author.name}
-                    key={index}
-                    className='transition-opacity hover:opacity-80'
-                  >
-                    <Avatar>
-                      <Image
-                        alt={author.name}
-                        img={useBaseUrl(author.imageURL)}
-                        className='aspect-square h-full w-full'
-                      />
-                    </Avatar>
-                  </Link>
-                ))}
+                {blog.content.metadata.authors.map((author, index) => {
+                  const authorLink = author.page?.permalink || author.url || '#'
+                  return (
+                    <Link
+                      href={authorLink}
+                      title={author.name}
+                      key={index}
+                      className='transition-opacity hover:opacity-80'
+                    >
+                      <Avatar>
+                        <Image
+                          alt={author.name}
+                          img={useBaseUrl(author.imageURL)}
+                          className='aspect-square h-full w-full'
+                        />
+                      </Avatar>
+                    </Link>
+                  )
+                })}
 
                 <div className='ml-4 text-sm dark:text-gray-400'>
                   <span>

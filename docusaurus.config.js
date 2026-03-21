@@ -1,44 +1,36 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Docusaurus Tailwind Shadcn/ui',
-  tagline: 'Templates Docusaurus with Tailwind CSS and Shadcn/ui',
+  title: 'OpenClaw MasterClass',
+  tagline: '全球最完整的 OpenClaw 學習資源中心 | The Most Comprehensive OpenClaw Resource',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://openclaw-masterclass.vercel.app',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'namnguyenthanhwork', // Usually your GitHub org/user name.
-  projectName: 'docusaurus-tailwind-shadcn-template', // Usually your repo name.
+  organizationName: 'tenten',
+  projectName: 'openclaw-masterclass',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn'
     }
   },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en']
+    defaultLocale: 'zh-Hant',
+    locales: ['zh-Hant', 'en', 'ja', 'zh-Hans', 'ko'],
+    localeConfigs: {
+      'zh-Hant': { label: '繁體中文', direction: 'ltr' },
+      en: { label: 'English', direction: 'ltr' },
+      ja: { label: '日本語', direction: 'ltr' },
+      'zh-Hans': { label: '简体中文', direction: 'ltr' },
+      ko: { label: '한국어', direction: 'ltr' },
+    },
   },
 
-  // Enable Docusaurs Faster: https://github.com/facebook/docusaurus/issues/10556
   future: {
     experimental_faster: true,
     v4: true
@@ -51,11 +43,8 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/tree/main',
-          docItemComponent: '@theme/ApiItem' // Derived from docusaurus-theme-openapi
+          editUrl: 'https://github.com/tenten/openclaw-masterclass/tree/main/',
+          docItemComponent: '@theme/ApiItem',
         },
         blog: false,
         theme: {
@@ -68,20 +57,72 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/openclaw-social-card.jpg',
+      metadata: [
+        { name: 'keywords', content: 'OpenClaw, AI agent, 養龍蝦, MasterClass, tutorial, skills, ClawHub' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
       navbar: {
-        title: 'Docusaurus Tailwind',
+        title: 'OpenClaw MasterClass',
         logo: {
-          alt: 'Docusaurus Tailwind Shadcn/ui Logo',
+          alt: 'OpenClaw MasterClass Logo',
           src: 'img/logo.svg'
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'dropdown',
+            label: 'MasterClass',
             position: 'left',
-            label: 'Tutorial'
+            items: [
+              { label: '課程總覽', to: '/docs/masterclass/overview' },
+              { label: '模組 1: 基礎架構', to: '/docs/masterclass/module-01-foundations' },
+              { label: '模組 2: Gateway', to: '/docs/masterclass/module-02-gateway' },
+              { label: '模組 3: Skills 系統', to: '/docs/masterclass/module-03-skills-system' },
+              { label: '模組 4: ClawHub', to: '/docs/masterclass/module-04-clawhub' },
+              { label: '模組 5: 記憶系統', to: '/docs/masterclass/module-05-memory' },
+              { label: '模組 6: 自動化', to: '/docs/masterclass/module-06-automation' },
+              { label: '模組 7: 瀏覽器', to: '/docs/masterclass/module-07-browser' },
+              { label: '模組 8: 多 Agent', to: '/docs/masterclass/module-08-multi-agent' },
+              { label: '模組 9: 安全性', to: '/docs/masterclass/module-09-security' },
+              { label: '模組 10: 部署', to: '/docs/masterclass/module-10-production' },
+              { label: '模組 11: 語音 & Canvas', to: '/docs/masterclass/module-11-voice-canvas' },
+              { label: '模組 12: 企業級', to: '/docs/masterclass/module-12-enterprise' },
+            ],
+          },
+          {
+            label: 'Top 50 Skills',
+            to: '/docs/top-50-skills/overview',
+            position: 'left',
+          },
+          {
+            type: 'dropdown',
+            label: '資源',
+            position: 'left',
+            items: [
+              { label: '資源目錄', to: '/docs/resources/official-links' },
+              { label: '學習路線圖', to: '/docs/resources/learning-path' },
+              { label: 'API Key 指南', to: '/docs/resources/api-keys-guide' },
+              { label: '生態系工具', to: '/docs/resources/tools-ecosystem' },
+            ],
+          },
+          {
+            label: '社群',
+            to: '/docs/communities/top-10',
+            position: 'left',
+          },
+          {
+            type: 'dropdown',
+            label: 'Reddit',
+            position: 'left',
+            items: [
+              { label: '討論技巧', to: '/docs/reddit/discussion-hacks' },
+              { label: 'Top 30 Showcase', to: '/docs/reddit/top-30-showcases' },
+            ],
+          },
+          {
+            label: "What's New",
+            to: '/docs/whats-new/march-2026',
+            position: 'left',
           },
           {
             to: '/blog',
@@ -89,19 +130,13 @@ const config = {
             position: 'left'
           },
           {
-            to: '/about-me',
-            label: 'About Me',
-            position: 'left'
+            type: 'localeDropdown',
+            position: 'right',
           },
           {
-            label: 'Petstore API',
-            position: 'left',
-            to: '/docs/category/petstore-versioned-api'
-          },
-          {
-            'href': 'https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template',
-            'position': 'right',
-            'className': 'header-github-link',
+            href: 'https://github.com/openclaw/openclaw',
+            position: 'right',
+            className: 'header-github-link',
             'aria-label': 'GitHub repository'
           }
         ]
@@ -116,80 +151,60 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '學習',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro'
-              }
+              { label: '快速開始', to: '/docs/getting-started/installation' },
+              { label: 'MasterClass 課程', to: '/docs/masterclass/overview' },
+              { label: 'Top 50 Skills', to: '/docs/top-50-skills/overview' },
+              { label: 'FAQ', to: '/docs/faq' },
             ]
           },
           {
-            title: 'Community',
+            title: '社群',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus'
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus'
-              }
+              { label: 'Official Discord', href: 'https://discord.gg/openclaw' },
+              { label: 'Reddit r/openclaw', href: 'https://reddit.com/r/openclaw' },
+              { label: 'GitHub Discussions', href: 'https://github.com/openclaw/openclaw/discussions' },
+              { label: 'X / Twitter', href: 'https://x.com/openclaw' },
             ]
           },
           {
-            title: 'More',
+            title: '資源',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus'
-              }
+              { label: 'Blog', to: '/blog' },
+              { label: '安全指南', to: '/docs/security/best-practices' },
+              { label: 'API 參考', to: '/docs/architecture/api-reference' },
+              { label: 'GitHub', href: 'https://github.com/openclaw/openclaw' },
+            ]
+          },
+          {
+            title: '更多',
+            items: [
+              { label: '術語表', to: '/docs/glossary' },
+              { label: '排名方法論', to: '/docs/methodology' },
+              { label: '最新變更', to: '/docs/whats-new/march-2026' },
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Docusaurus Tailwind Shadcn. Templates by <a href="https://github.com/namnguyenthanhwork" style="font-weight: bold;" target="_blank">Thành Nam Nguyễn</a>`
+        copyright: `Copyright © ${new Date().getFullYear()} OpenClaw MasterClass. 以 MIT 授權釋出。本站為社群驅動的學習資源，非 OpenClaw 官方網站。`
       },
       prism: {
         additionalLanguages: [
-          'ruby',
-          'csharp',
-          'php',
-          'java',
-          'powershell',
-          'json',
           'bash',
-          'dart',
-          'objectivec',
-          'r'
+          'json',
+          'yaml',
+          'docker',
+          'toml',
+          'python',
+          'javascript',
+          'typescript',
         ]
       },
       languageTabs: [
-        { highlight: 'python', language: 'python', logoClass: 'python' },
         { highlight: 'bash', language: 'curl', logoClass: 'curl' },
-        { highlight: 'csharp', language: 'csharp', logoClass: 'csharp' },
-        { highlight: 'go', language: 'go', logoClass: 'go' },
+        { highlight: 'python', language: 'python', logoClass: 'python' },
         { highlight: 'javascript', language: 'nodejs', logoClass: 'nodejs' },
-        { highlight: 'ruby', language: 'ruby', logoClass: 'ruby' },
-        { highlight: 'php', language: 'php', logoClass: 'php' },
-        { highlight: 'java', language: 'java', logoClass: 'java', variant: 'unirest' },
-        { highlight: 'powershell', language: 'powershell', logoClass: 'powershell' },
-        { highlight: 'dart', language: 'dart', logoClass: 'dart' },
-        { highlight: 'javascript', language: 'javascript', logoClass: 'javascript' },
-        { highlight: 'c', language: 'c', logoClass: 'c' },
-        { highlight: 'objective-c', language: 'objective-c', logoClass: 'objective-c' },
-        { highlight: 'ocaml', language: 'ocaml', logoClass: 'ocaml' },
-        { highlight: 'r', language: 'r', logoClass: 'r' },
-        { highlight: 'swift', language: 'swift', logoClass: 'swift' },
-        { highlight: 'kotlin', language: 'kotlin', logoClass: 'kotlin' },
-        { highlight: 'rust', language: 'rust', logoClass: 'rust' }
+        { highlight: 'go', language: 'go', logoClass: 'go' },
       ]
     }),
 
@@ -197,19 +212,23 @@ const config = {
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
-        indexPages: true,
+        indexPages: false,
         docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
         hashed: true,
-        language: ['en'],
+        language: ['en', 'zh'],
         highlightSearchTermsOnTargetPage: false,
         searchResultContextMaxLength: 50,
         searchResultLimits: 8,
         searchBarShortcut: true,
-        searchBarShortcutHint: true
+        searchBarShortcutHint: true,
+        indexDocs: true,
+        indexBlog: true,
       }
     ],
     'docusaurus-theme-openapi-docs'
   ],
+
   plugins: [
     ['./src/plugins/webpack-alias.js', {}],
     ['./src/plugins/tailwind-config.js', {}],
@@ -219,39 +238,14 @@ const config = {
         id: 'openapi',
         docsPluginId: 'classic',
         config: {
-          // multiVersion
-          petstore_versioned: {
-            specPath: 'api-swagger/petstore.yaml',
-            outputDir: 'docs/petstore_versioned', // No trailing slash
+          openclaw_gateway: {
+            specPath: 'openapi/openclaw-gateway.yaml',
+            outputDir: 'docs/architecture/api-generated',
             sidebarOptions: {
               groupPathsBy: 'tag',
               categoryLinkSource: 'tag'
             },
-            version: '2.0.0', // Current version
-            label: 'v2.0.0', // Current version label
-            baseUrl: '/docs/petstore_versioned/swagger-petstore-yaml', // Leading slash is important
-            downloadUrl:
-              'https://raw.githubusercontent.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/main/api-swagger/petstore.yaml',
-            versions: {
-              '1.0.0': {
-                specPath: 'api-swagger/petstore-1.0.0.yaml',
-                outputDir: 'docs/petstore_versioned/1.0.0', // No trailing slash
-                label: 'v1.0.0',
-                baseUrl: '/docs/petstore_versioned/1.0.0/swagger-petstore-yaml', // Leading slash is important
-                downloadUrl:
-                  'https://raw.githubusercontent.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/main/api-swagger/petstore-1.0.0.yaml'
-              }
-            }
           }
-          // singleVersion
-          // petstore: {
-          //   specPath: 'api-swagger/petstore.yaml',
-          //   outputDir: 'docs/petstore',
-          //   sidebarOptions: { groupPathsBy: 'tag', categoryLinkSource: 'tag' },
-          //   downloadUrl: '/petstore.yaml',
-          //   hideSendButton: false,
-          //   showSchemas: true
-          // }
         }
       }
     ],
@@ -263,7 +257,6 @@ const config = {
         max: 1030,
         min: 640,
         steps: 2,
-        // Use false to debug, but it incurs huge perf costs
         disableInDev: true
       })
     ],
@@ -272,10 +265,10 @@ const config = {
       {
         path: 'blog',
         editLocalizedFiles: false,
-        blogTitle: 'Blog',
-        blogDescription: 'Blog description is here ...',
+        blogTitle: 'OpenClaw MasterClass Blog',
+        blogDescription: 'OpenClaw 最新消息、教學文章與社群精選',
         blogSidebarCount: 'ALL',
-        blogSidebarTitle: 'List blog',
+        blogSidebarTitle: '所有文章',
         routeBasePath: 'blog',
         include: ['**/*.md', '**/*.mdx'],
         exclude: [
@@ -288,9 +281,7 @@ const config = {
         truncateMarker: /<!--\s*(truncate)\s*-->/,
         showReadingTime: true,
         onUntruncatedBlogPosts: 'ignore',
-        // Remove this to remove the "edit this page" links.
-        editUrl:
-          'https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/tree/main/',
+        editUrl: 'https://github.com/tenten/openclaw-masterclass/tree/main/',
         remarkPlugins: [[require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }]]
       }
     ]

@@ -1,0 +1,590 @@
+openapi: 3.0.3
+info:
+  title: OpenClaw Gateway API
+  description: |
+    The OpenClaw Gateway API provides HTTP and WebSocket endpoints for managing
+    agents, skills, and tasks in an OpenClaw deployment.
+
+    ## Authentication
+    All endpoints require a Bearer token in the `Authorization` header.
+    Tokens can be generated using `openclaw auth generate-token`.
+
+    ## WebSocket
+    The Gateway exposes a WebSocket endpoint on port 18789 for real-time
+    communication between agents and clients. See the `/ws` endpoint for details.
+
+    ## Base URL
+    By default, the Gateway listens on `127.0.0.1:18789`. In production,
+    deploy behind a reverse proxy with TLS termination.
+  version: 4.2.0
+  contact:
+    name: OpenClaw Foundation
+    url: https://openclaw.dev
+    email: api@openclaw.dev
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  - url: http://127.0.0.1:18789
+    description: Local development
+  - url: https://gateway.openclaw.dev
+    description: OpenClaw Cloud (managed)
+
+tags:
+  - name: WebSocket
+    description: Real-time WebSocket connection for agent communication
+  - name: Skills
+    description: Skill lifecycle management (install, update, remove, list)
+  - name: Agents
+    description: Query and manage running agents
+  - name: Tasks
+    description: Create and monitor tasks executed by agents
+
+security:
+  - BearerAuth: []
+
+paths:
+  /ws:
+    get:
+      tags:
+        - WebSocket
+      summary: Establish WebSocket connection
+      description: |
+        Upgrades an HTTP connection to a WebSocket connection on port 18789.
+        Used for real-time bidirectional communication between clients and
+        the OpenClaw Gateway.
+
+        ### Connection Flow
+        1. Client sends HTTP GET with `Upgrade: websocket` header
+        2. Gateway validates the Bearer token during the handshake
+        3. Connection enters Staging state (max 5s for auth)
+        4. On successful auth, connection transitions to Active state
+        5. Client can send/receive JSON frames
+
+        ### Frame Format
+        ```json
+        {
+          "type": "message|command|event",
+          "agent_id": "agent-uuid",
+          "payload": { ... },
+          "timestamp": "2026-03-20T12:00:00Z"
+        }
+        ```
+
+        ### Security Note
+        Since v4.1.3, the Connection Staging mechanism prevents
+        unauthenticated frames from being processed (CVE-2026-25253 fix).
+      operationId: websocketConnect
+      parameters:
+        - name: Upgrade
+          in: header
+          required: true
+          schema:
+            type: string
+            enum: [websocket]
+        - name: Connection
+          in: header
+          required: true
+          schema:
+            type: string
+            enum: [Upgrade]
+        - name: Sec-WebSocket-Version
+          in: header
+          required: true
+          schema:
+            type: string
+            enum: ["13"]
+        - name: Sec-WebSocket-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        "101":
+          description: Switching Protocols — WebSocket connection established
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "429":
+          description: Too many connections from this client
+
+  /skills:
+    get:
+      tags:
+        - Skills
+      summary: List installed skills
+      operationId: listSkills
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: status
+          in: query
+          description: Filter by skill status
+          schema:
+            type: string
+            enum: [active, disabled, error]
+        - name: search
+          in: query
+          description: Search skills by name or description
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of installed skills
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Skill"
+                  pagination:
+                    $ref: "#/components/schemas/Pagination"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+    post:
+      tags:
+        - Skills
+      summary: Install or manage a skill
+      description: |
+        Install a new skill from the Marketplace, a Git repository, or a
+        local path. Can also be used to update or reconfigure an existing skill.
+      operationId: manageSkill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - action
+              properties:
+                action:
+                  type: string
+                  enum: [install, update, remove, enable, disable]
+                  description: The action to perform
+                skill_id:
+                  type: string
+                  description: Skill identifier (required for update, remove, enable, disable)
+                  example: "official/web-search"
+                source:
+                  type: string
+                  description: Installation source (required for install)
+                  enum: [marketplace, git, local]
+                source_url:
+                  type: string
+                  description: URL or path for git/local sources
+                  example: "https://github.com/openclaw-skills/web-search.git"
+                config:
+                  type: object
+                  description: Skill-specific configuration overrides
+                  additionalProperties: true
+                permissions:
+                  type: array
+                  description: Permissions to grant the skill
+                  items:
+                    type: string
+                  example: ["network:read", "storage:read"]
+              example:
+                action: install
+                source: marketplace
+                skill_id: "official/web-search"
+                permissions: ["network:read"]
+      responses:
+        "200":
+          description: Skill action completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Skill"
+        "202":
+          description: Skill action accepted and processing asynchronously
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  task_id:
+                    type: string
+                    format: uuid
+                  status:
+                    type: string
+                    enum: [pending]
+                  message:
+                    type: string
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "409":
+          description: Conflict — skill already installed (for install action)
+
+  /agents:
+    get:
+      tags:
+        - Agents
+      summary: List running agents
+      description: |
+        Returns a list of all agents currently registered with the Gateway,
+        including their status, connected platforms, and loaded skills.
+      operationId: listAgents
+      parameters:
+        - name: status
+          in: query
+          description: Filter by agent status
+          schema:
+            type: string
+            enum: [online, offline, error, starting]
+        - name: platform
+          in: query
+          description: Filter by connected platform
+          schema:
+            type: string
+            example: slack
+      responses:
+        "200":
+          description: List of agents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Agent"
+                  total:
+                    type: integer
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /agents/{agent_id}:
+    get:
+      tags:
+        - Agents
+      summary: Get agent details
+      operationId: getAgent
+      parameters:
+        - name: agent_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Agent details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Agent"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /tasks:
+    post:
+      tags:
+        - Tasks
+      summary: Create a new task
+      description: |
+        Submit a task to be executed by a specific agent. Tasks are the primary
+        way to programmatically interact with agents through the Gateway API.
+
+        Tasks are processed asynchronously. Use the returned `task_id` to
+        poll for status via `GET /tasks/{task_id}`, or subscribe to task
+        events over the WebSocket connection.
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - agent_id
+                - type
+              properties:
+                agent_id:
+                  type: string
+                  format: uuid
+                  description: Target agent to execute the task
+                type:
+                  type: string
+                  description: Task type
+                  enum: [message, command, skill_invoke]
+                payload:
+                  type: object
+                  description: Task-specific payload
+                  additionalProperties: true
+                  example:
+                    message: "What is the weather in Taipei?"
+                    context:
+                      platform: "api"
+                      user_id: "user-123"
+                priority:
+                  type: string
+                  enum: [low, normal, high, urgent]
+                  default: normal
+                timeout_ms:
+                  type: integer
+                  description: Task timeout in milliseconds
+                  default: 30000
+                  minimum: 1000
+                  maximum: 300000
+                callback_url:
+                  type: string
+                  format: uri
+                  description: Optional webhook URL to receive task completion notification
+      responses:
+        "201":
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          description: Agent not found
+
+  /tasks/{task_id}:
+    get:
+      tags:
+        - Tasks
+      summary: Get task status and result
+      operationId: getTask
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Bearer token for API authentication. Generate a token using:
+        ```
+        openclaw auth generate-token
+        ```
+        Include in requests as: `Authorization: Bearer <token>`
+
+  schemas:
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "official/web-search"
+        name:
+          type: string
+          example: "Web Search"
+        version:
+          type: string
+          example: "2.1.0"
+        description:
+          type: string
+          example: "Search the web using multiple search engines"
+        author:
+          type: string
+          example: "OpenClaw Foundation"
+        status:
+          type: string
+          enum: [active, disabled, error, installing]
+        permissions:
+          type: array
+          items:
+            type: string
+          example: ["network:read"]
+        installed_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: "production-agent-01"
+        status:
+          type: string
+          enum: [online, offline, error, starting]
+        platforms:
+          type: array
+          items:
+            type: string
+          example: ["slack", "discord", "line"]
+        skills:
+          type: array
+          items:
+            type: string
+          description: List of loaded skill IDs
+          example: ["official/web-search", "official/calendar"]
+        uptime_seconds:
+          type: integer
+          example: 86400
+        version:
+          type: string
+          example: "4.2.0"
+        connected_at:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties: true
+
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        agent_id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [message, command, skill_invoke]
+        status:
+          type: string
+          enum: [pending, running, completed, failed, timeout]
+        priority:
+          type: string
+          enum: [low, normal, high, urgent]
+        payload:
+          type: object
+          additionalProperties: true
+        result:
+          type: object
+          description: Task result (populated when status is completed)
+          properties:
+            response:
+              type: string
+            data:
+              type: object
+              additionalProperties: true
+            skill_used:
+              type: string
+        error:
+          type: object
+          description: Error details (populated when status is failed)
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+        timeout_ms:
+          type: integer
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+        total_pages:
+          type: integer
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "unauthorized"
+              message:
+                type: string
+                example: "Invalid or expired Bearer token"
+
+    BadRequest:
+      description: Invalid request body or parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "bad_request"
+              message:
+                type: string
+                example: "Validation failed"
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    field:
+                      type: string
+                    message:
+                      type: string
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "not_found"
+              message:
+                type: string
+                example: "Resource not found"

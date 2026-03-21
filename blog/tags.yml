@@ -1,19 +1,29 @@
-hola:
-  label: 'Hola'
-  permalink: '/hola'
-  description: 'Articles on the topic hola'
+openclaw:
+  label: 'OpenClaw'
+  permalink: '/openclaw'
+  description: 'OpenClaw 相關文章'
 
-hello:
-  label: 'Hello'
-  permalink: '/hello'
-  description: 'Articles on the topic hello'
+masterclass:
+  label: 'MasterClass'
+  permalink: '/masterclass'
+  description: 'MasterClass 課程相關文章'
 
-docusaurus:
-  label: 'Docusaurus'
-  permalink: '/docusaurus'
-  description: 'Articles on the topic docusaurus'
+security:
+  label: '安全性'
+  permalink: '/security'
+  description: '安全性相關文章'
 
-facebook:
-  label: 'Facebook'
-  permalink: '/facebook'
-  description: 'Articles on the topic facebook'
+history:
+  label: '歷史'
+  permalink: '/history'
+  description: 'OpenClaw 發展歷史'
+
+community:
+  label: '社群'
+  permalink: '/community'
+  description: '社群相關文章'
+
+getting-started:
+  label: '快速開始'
+  permalink: '/getting-started'
+  description: '入門指南文章'
