@@ -6,8 +6,8 @@ const config = {
   tagline: '全球最完整的 OpenClaw 學習資源中心 | The Most Comprehensive OpenClaw Resource',
   favicon: 'img/favicon.ico',
 
-  url: 'https://openclaw-masterclass.vercel.app',
-  baseUrl: '/',
+  url: 'https://tenten.co',
+  baseUrl: '/openclaw/',
 
   organizationName: 'tenten',
   projectName: 'openclaw-masterclass',

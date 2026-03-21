@@ -49,7 +49,7 @@ npm install -g @openclaw/cli@latest
 openclaw doctor --security
 ```
 
-:::danger 立即行动
+:::danger 立即移动
 如果你的 OpenClaw 版本低于最新修补版本，请**立即升级**。此漏洞正被积极利用中。
 :::
 
@@ -274,11 +274,11 @@ permissions:               # 新增：必须明确声明权限
 
 ---
 
-## 建议行动
+## 建议移动
 
 根据本月的更新，我们建议所有 OpenClaw 用户：
 
-### 立即行动（今天）
+### 立即移动（今天）
 
 1. **升级到最新版本** — 修补 CVE-2026-25253
 2. **确认 Gateway 绑定到 `127.0.0.1`** — 不是 `0.0.0.0`
