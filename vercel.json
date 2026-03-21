@@ -2,5 +2,15 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "installCommand": "npm install",
-  "framework": "docusaurus-2"
+  "framework": "docusaurus-2",
+  "rewrites": [
+    {
+      "source": "/openclaw/:path*",
+      "destination": "/:path*"
+    },
+    {
+      "source": "/openclaw",
+      "destination": "/"
+    }
+  ]
 }
