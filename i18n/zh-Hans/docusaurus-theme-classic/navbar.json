@@ -1,0 +1,114 @@
+{
+  "title": {
+    "message": "OpenClaw MasterClass",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "OpenClaw MasterClass Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.MasterClass": {
+    "message": "MasterClass",
+    "description": "Navbar item with label MasterClass"
+  },
+  "item.label.Top 50 Skills": {
+    "message": "Top 50 Skills",
+    "description": "Navbar item with label Top 50 Skills"
+  },
+  "item.label.資源": {
+    "message": "资源",
+    "description": "Navbar item with label 資源"
+  },
+  "item.label.社群": {
+    "message": "社区",
+    "description": "Navbar item with label 社群"
+  },
+  "item.label.Reddit": {
+    "message": "Reddit",
+    "description": "Navbar item with label Reddit"
+  },
+  "item.label.What's New": {
+    "message": "最新动态",
+    "description": "Navbar item with label What's New"
+  },
+  "item.label.Blog": {
+    "message": "博客",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.課程總覽": {
+    "message": "课程总览",
+    "description": "Navbar item with label 課程總覽"
+  },
+  "item.label.模組 1: 基礎架構": {
+    "message": "模块 1: 基础架构",
+    "description": "Navbar item with label 模組 1: 基礎架構"
+  },
+  "item.label.模組 2: Gateway": {
+    "message": "模块 2: Gateway",
+    "description": "Navbar item with label 模組 2: Gateway"
+  },
+  "item.label.模組 3: Skills 系統": {
+    "message": "模块 3: Skills 系统",
+    "description": "Navbar item with label 模組 3: Skills 系統"
+  },
+  "item.label.模組 4: ClawHub": {
+    "message": "模块 4: ClawHub",
+    "description": "Navbar item with label 模組 4: ClawHub"
+  },
+  "item.label.模組 5: 記憶系統": {
+    "message": "模块 5: 记忆系统",
+    "description": "Navbar item with label 模組 5: 記憶系統"
+  },
+  "item.label.模組 6: 自動化": {
+    "message": "模块 6: 自动化",
+    "description": "Navbar item with label 模組 6: 自動化"
+  },
+  "item.label.模組 7: 瀏覽器": {
+    "message": "模块 7: 浏览器",
+    "description": "Navbar item with label 模組 7: 瀏覽器"
+  },
+  "item.label.模組 8: 多 Agent": {
+    "message": "模块 8: 多 Agent",
+    "description": "Navbar item with label 模組 8: 多 Agent"
+  },
+  "item.label.模組 9: 安全性": {
+    "message": "模块 9: 安全性",
+    "description": "Navbar item with label 模組 9: 安全性"
+  },
+  "item.label.模組 10: 部署": {
+    "message": "模块 10: 部署",
+    "description": "Navbar item with label 模組 10: 部署"
+  },
+  "item.label.模組 11: 語音 & Canvas": {
+    "message": "模块 11: 语音 & Canvas",
+    "description": "Navbar item with label 模組 11: 語音 & Canvas"
+  },
+  "item.label.模組 12: 企業級": {
+    "message": "模块 12: 企业级",
+    "description": "Navbar item with label 模組 12: 企業級"
+  },
+  "item.label.資源目錄": {
+    "message": "资源目录",
+    "description": "Navbar item with label 資源目錄"
+  },
+  "item.label.學習路線圖": {
+    "message": "学习路线图",
+    "description": "Navbar item with label 學習路線圖"
+  },
+  "item.label.API Key 指南": {
+    "message": "API Key 指南",
+    "description": "Navbar item with label API Key 指南"
+  },
+  "item.label.生態系工具": {
+    "message": "生态系统工具",
+    "description": "Navbar item with label 生態系工具"
+  },
+  "item.label.討論技巧": {
+    "message": "讨论技巧",
+    "description": "Navbar item with label 討論技巧"
+  },
+  "item.label.Top 30 Showcase": {
+    "message": "Top 30 Showcase",
+    "description": "Navbar item with label Top 30 Showcase"
+  }
+}

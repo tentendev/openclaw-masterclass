@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
+import Translate, {translate} from '@docusaurus/Translate'
 import { cn } from '@/lib/utils'
 import { AnimatedGradientText } from '@/components/ui/animated-gradient-text'
 
@@ -12,10 +13,10 @@ const StatItem = ({ value, label }) => (
 
 export default function HeroBanner() {
   const stats = [
-    { value: '250K+', label: 'GitHub Stars' },
-    { value: '13,000+', label: 'Skills' },
-    { value: '20+', label: '通訊平台' },
-    { value: '5', label: 'Languages' }
+    { value: '250K+', label: translate({id: 'homepage.hero.stats.githubStars', message: 'GitHub Stars'}) },
+    { value: '13,000+', label: translate({id: 'homepage.hero.stats.skills', message: 'Skills'}) },
+    { value: '20+', label: translate({id: 'homepage.hero.stats.platforms', message: '通訊平台'}) },
+    { value: '5', label: translate({id: 'homepage.hero.stats.languages', message: 'Languages'}) }
   ]
 
   return (
@@ -37,16 +38,16 @@ export default function HeroBanner() {
                 }}
               />
               <AnimatedGradientText className='text-sm font-medium'>
-                🦞 全球最完整的 OpenClaw 學習平台
+                <Translate id="homepage.hero.badge" description="Hero badge text">🦞 全球最完整的 OpenClaw 學習平台</Translate>
               </AnimatedGradientText>
             </div>
 
             <h1 className='mt-4 mb-4 text-[32px] leading-tight font-bold text-gray-900 sm:mt-6 sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl dark:text-white'>
-              OpenClaw MasterClass 🦞
+              <Translate id="homepage.hero.title" description="Hero title">OpenClaw MasterClass 🦞</Translate>
             </h1>
 
             <p className='mx-auto mb-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:mb-8 sm:text-lg md:text-xl dark:text-gray-300'>
-              全球最完整的 OpenClaw 學習資源中心
+              <Translate id="homepage.hero.subtitle" description="Hero subtitle">全球最完整的 OpenClaw 學習資源中心</Translate>
             </p>
 
             <div className='flex flex-wrap justify-center gap-4'>
@@ -54,13 +55,13 @@ export default function HeroBanner() {
                 to='/docs/masterclass/overview'
                 className='inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-primary/90 hover:text-white hover:no-underline hover:shadow-lg sm:text-base'
               >
-                開始學習 MasterClass
+                <Translate id="homepage.hero.cta.start" description="Primary CTA button">開始學習 MasterClass</Translate>
               </Link>
               <Link
                 to='/docs/getting-started/installation'
                 className='inline-flex items-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:text-gray-900 hover:no-underline hover:shadow-md dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white sm:text-base'
               >
-                快速開始
+                <Translate id="homepage.hero.cta.quickstart" description="Secondary CTA button">快速開始</Translate>
               </Link>
             </div>
 

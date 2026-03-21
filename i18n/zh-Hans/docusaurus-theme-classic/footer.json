@@ -1,0 +1,82 @@
+{
+  "link.title.學習": {
+    "message": "学习",
+    "description": "The title of the footer links column with title=學習 in the footer"
+  },
+  "link.title.社群": {
+    "message": "社区",
+    "description": "The title of the footer links column with title=社群 in the footer"
+  },
+  "link.title.資源": {
+    "message": "资源",
+    "description": "The title of the footer links column with title=資源 in the footer"
+  },
+  "link.title.更多": {
+    "message": "更多",
+    "description": "The title of the footer links column with title=更多 in the footer"
+  },
+  "link.item.label.快速開始": {
+    "message": "快速开始",
+    "description": "The label of footer link with label=快速開始 linking to /docs/getting-started/installation"
+  },
+  "link.item.label.MasterClass 課程": {
+    "message": "MasterClass 课程",
+    "description": "The label of footer link with label=MasterClass 課程 linking to /docs/masterclass/overview"
+  },
+  "link.item.label.Top 50 Skills": {
+    "message": "Top 50 Skills",
+    "description": "The label of footer link with label=Top 50 Skills linking to /docs/top-50-skills/overview"
+  },
+  "link.item.label.FAQ": {
+    "message": "FAQ",
+    "description": "The label of footer link with label=FAQ linking to /docs/faq"
+  },
+  "link.item.label.Official Discord": {
+    "message": "官方 Discord",
+    "description": "The label of footer link with label=Official Discord linking to https://discord.gg/openclaw"
+  },
+  "link.item.label.Reddit r/openclaw": {
+    "message": "Reddit r/openclaw",
+    "description": "The label of footer link with label=Reddit r/openclaw linking to https://reddit.com/r/openclaw"
+  },
+  "link.item.label.GitHub Discussions": {
+    "message": "GitHub Discussions",
+    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/openclaw/openclaw/discussions"
+  },
+  "link.item.label.X / Twitter": {
+    "message": "X / Twitter",
+    "description": "The label of footer link with label=X / Twitter linking to https://x.com/openclaw"
+  },
+  "link.item.label.Blog": {
+    "message": "博客",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.安全指南": {
+    "message": "安全指南",
+    "description": "The label of footer link with label=安全指南 linking to /docs/security/best-practices"
+  },
+  "link.item.label.API 參考": {
+    "message": "API 参考",
+    "description": "The label of footer link with label=API 參考 linking to /docs/architecture/api-reference"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/openclaw/openclaw"
+  },
+  "link.item.label.術語表": {
+    "message": "术语表",
+    "description": "The label of footer link with label=術語表 linking to /docs/glossary"
+  },
+  "link.item.label.排名方法論": {
+    "message": "排名方法论",
+    "description": "The label of footer link with label=排名方法論 linking to /docs/methodology"
+  },
+  "link.item.label.最新變更": {
+    "message": "最新变更",
+    "description": "The label of footer link with label=最新變更 linking to /docs/whats-new/march-2026"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 OpenClaw MasterClass. 以 MIT 许可证发布。本站为社区驱动的学习资源，非 OpenClaw 官方网站。",
+    "description": "The footer copyright"
+  }
+}

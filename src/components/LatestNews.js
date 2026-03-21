@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
+import Translate from '@docusaurus/Translate'
 import Image from '@theme/IdealImage'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import TagsListInline from '@theme/TagsListInline'
@@ -75,8 +76,12 @@ export default function LatestNews({ homePageBlogMetadata, recentPosts }) {
   return (
     <div className='mx-auto my-16 max-w-7xl px-4'>
       <div className='mb-16 text-center'>
-        <h2 className='mb-4 text-3xl font-bold'>最新消息</h2>
-        <p className='text-gray-600 dark:text-gray-400'>OpenClaw 社群最新動態與教學文章</p>
+        <h2 className='mb-4 text-3xl font-bold'>
+          <Translate id="homepage.latestNews.title" description="Latest news section title">最新消息</Translate>
+        </h2>
+        <p className='text-gray-600 dark:text-gray-400'>
+          <Translate id="homepage.latestNews.description" description="Latest news section description">OpenClaw 社群最新動態與教學文章</Translate>
+        </p>
       </div>
 
       <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3'>
@@ -90,7 +95,7 @@ export default function LatestNews({ homePageBlogMetadata, recentPosts }) {
       <div className='mt-8 text-center'>
         <Button asChild>
           <Link to={homePageBlogMetadata.path} className='hover:text-primary-foreground'>
-            查看全部文章
+            <Translate id="homepage.latestNews.viewAll" description="View all posts button">查看全部文章</Translate>
           </Link>
         </Button>
       </div>

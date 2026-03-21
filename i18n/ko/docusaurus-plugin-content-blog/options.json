@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "OpenClaw MasterClass 블로그",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "OpenClaw 최신 소식, 튜토리얼 및 커뮤니티 하이라이트",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "모든 글",
+    "description": "The label for the left sidebar"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.mainSidebar.category.快速開始": {
+    "message": "Quick Start",
+    "description": "The label for category '快速開始' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.MasterClass 課程": {
+    "message": "MasterClass Course",
+    "description": "The label for category 'MasterClass 課程' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.Top 50 必裝 Skills": {
+    "message": "Top 50 Must-Have Skills",
+    "description": "The label for category 'Top 50 必裝 Skills' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.資源中心": {
+    "message": "Resource Center",
+    "description": "The label for category '資源中心' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.社群指南": {
+    "message": "Community Guide",
+    "description": "The label for category '社群指南' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.Reddit": {
+    "message": "Reddit",
+    "description": "The label for category 'Reddit' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.架構與 API": {
+    "message": "Architecture & API",
+    "description": "The label for category '架構與 API' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.安全性": {
+    "message": "Security",
+    "description": "The label for category '安全性' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.疑難排解": {
+    "message": "Troubleshooting",
+    "description": "The label for category '疑難排解' in sidebar 'mainSidebar'"
+  },
+  "sidebar.mainSidebar.category.最新消息": {
+    "message": "What's New",
+    "description": "The label for category '最新消息' in sidebar 'mainSidebar'"
+  }
+}

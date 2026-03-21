@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "OpenClaw MasterClass Blog",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "OpenClaw latest news, tutorials, and community highlights",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "All Posts",
+    "description": "The label for the left sidebar"
+  }
+}

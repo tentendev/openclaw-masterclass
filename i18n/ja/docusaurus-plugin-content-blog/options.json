@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "OpenClaw MasterClass ブログ",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "OpenClaw の最新ニュース、チュートリアル、コミュニティのおすすめ",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "すべての記事",
+    "description": "The label for the left sidebar"
+  }
+}

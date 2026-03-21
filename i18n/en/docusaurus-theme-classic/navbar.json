@@ -1,0 +1,114 @@
+{
+  "title": {
+    "message": "OpenClaw MasterClass",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "OpenClaw MasterClass Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.MasterClass": {
+    "message": "MasterClass",
+    "description": "Navbar item with label MasterClass"
+  },
+  "item.label.Top 50 Skills": {
+    "message": "Top 50 Skills",
+    "description": "Navbar item with label Top 50 Skills"
+  },
+  "item.label.資源": {
+    "message": "Resources",
+    "description": "Navbar item with label 資源"
+  },
+  "item.label.社群": {
+    "message": "Communities",
+    "description": "Navbar item with label 社群"
+  },
+  "item.label.Reddit": {
+    "message": "Reddit",
+    "description": "Navbar item with label Reddit"
+  },
+  "item.label.What's New": {
+    "message": "What's New",
+    "description": "Navbar item with label What's New"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.課程總覽": {
+    "message": "Course Overview",
+    "description": "Navbar item with label 課程總覽"
+  },
+  "item.label.模組 1: 基礎架構": {
+    "message": "Module 1: Core Architecture",
+    "description": "Navbar item with label 模組 1: 基礎架構"
+  },
+  "item.label.模組 2: Gateway": {
+    "message": "Module 2: Gateway",
+    "description": "Navbar item with label 模組 2: Gateway"
+  },
+  "item.label.模組 3: Skills 系統": {
+    "message": "Module 3: Skills System",
+    "description": "Navbar item with label 模組 3: Skills 系統"
+  },
+  "item.label.模組 4: ClawHub": {
+    "message": "Module 4: ClawHub",
+    "description": "Navbar item with label 模組 4: ClawHub"
+  },
+  "item.label.模組 5: 記憶系統": {
+    "message": "Module 5: Memory System",
+    "description": "Navbar item with label 模組 5: 記憶系統"
+  },
+  "item.label.模組 6: 自動化": {
+    "message": "Module 6: Automation",
+    "description": "Navbar item with label 模組 6: 自動化"
+  },
+  "item.label.模組 7: 瀏覽器": {
+    "message": "Module 7: Browser",
+    "description": "Navbar item with label 模組 7: 瀏覽器"
+  },
+  "item.label.模組 8: 多 Agent": {
+    "message": "Module 8: Multi-Agent",
+    "description": "Navbar item with label 模組 8: 多 Agent"
+  },
+  "item.label.模組 9: 安全性": {
+    "message": "Module 9: Security",
+    "description": "Navbar item with label 模組 9: 安全性"
+  },
+  "item.label.模組 10: 部署": {
+    "message": "Module 10: Deployment",
+    "description": "Navbar item with label 模組 10: 部署"
+  },
+  "item.label.模組 11: 語音 & Canvas": {
+    "message": "Module 11: Voice & Canvas",
+    "description": "Navbar item with label 模組 11: 語音 & Canvas"
+  },
+  "item.label.模組 12: 企業級": {
+    "message": "Module 12: Enterprise",
+    "description": "Navbar item with label 模組 12: 企業級"
+  },
+  "item.label.資源目錄": {
+    "message": "Resource Directory",
+    "description": "Navbar item with label 資源目錄"
+  },
+  "item.label.學習路線圖": {
+    "message": "Learning Roadmap",
+    "description": "Navbar item with label 學習路線圖"
+  },
+  "item.label.API Key 指南": {
+    "message": "API Key Guide",
+    "description": "Navbar item with label API Key 指南"
+  },
+  "item.label.生態系工具": {
+    "message": "Ecosystem Tools",
+    "description": "Navbar item with label 生態系工具"
+  },
+  "item.label.討論技巧": {
+    "message": "Discussion Tips",
+    "description": "Navbar item with label 討論技巧"
+  },
+  "item.label.Top 30 Showcase": {
+    "message": "Top 30 Showcase",
+    "description": "Navbar item with label Top 30 Showcase"
+  }
+}
