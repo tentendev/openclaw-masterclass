@@ -548,5 +548,240 @@
   },
   "homepage.security.cta": {
     "message": "セキュリティベストプラクティス"
+  },
+  "floatingMolty.tip.bind": {
+    "message": "127.0.0.1 にバインドしよう！",
+    "description": "Floating Molty tip about binding to localhost"
+  },
+  "floatingMolty.tip.ratings": {
+    "message": "インストール前に評価を確認！",
+    "description": "Floating Molty tip about checking skill ratings"
+  },
+  "floatingMolty.tip.podman": {
+    "message": "Podman は Docker より安全！",
+    "description": "Floating Molty tip about using Podman"
+  },
+  "floatingMolty.tip.soul": {
+    "message": "SOUL.md が Agent の人格を決める！",
+    "description": "Floating Molty tip about SOUL.md"
+  },
+  "homepage.architecture.title": {
+    "message": "OpenClaw 四層アーキテクチャ",
+    "description": "Architecture diagram section title"
+  },
+  "homepage.architecture.subtitle": {
+    "message": "各レイヤーをクリックして、対応するMasterClassモジュールを探索しましょう",
+    "description": "Architecture diagram subtitle"
+  },
+  "homepage.architecture.gateway.title": {
+    "message": "ゲートウェイ",
+    "description": "Architecture layer 1 title"
+  },
+  "homepage.architecture.gateway.desc": {
+    "message": "WebSocket オーケストレーター \u2022 ポート 18789",
+    "description": "Architecture layer 1 description"
+  },
+  "homepage.architecture.gateway.detail": {
+    "message": "すべてのWebSocket接続を管理し、メッセージを推論レイヤーにルーティングし、マルチプラットフォームのプロトコル変換を処理します。",
+    "description": "Architecture layer 1 expanded detail"
+  },
+  "homepage.architecture.reasoning.title": {
+    "message": "推論レイヤー",
+    "description": "Architecture layer 2 title"
+  },
+  "homepage.architecture.reasoning.desc": {
+    "message": "LLM メガプロンプティング",
+    "description": "Architecture layer 2 description"
+  },
+  "homepage.architecture.reasoning.detail": {
+    "message": "コンテキスト、メモリ、Skillマニフェストからメガプロンプトを構築し、設定されたLLMプロバイダーに送信します。",
+    "description": "Architecture layer 2 expanded detail"
+  },
+  "homepage.architecture.memory.title": {
+    "message": "メモリシステム",
+    "description": "Architecture layer 3 title"
+  },
+  "homepage.architecture.memory.desc": {
+    "message": "先行書き込みログ \u2022 Markdownコンパクション",
+    "description": "Architecture layer 3 description"
+  },
+  "homepage.architecture.memory.detail": {
+    "message": "先行書き込みログで会話コンテキストを永続化し、長い履歴を簡潔なMarkdownサマリーに圧縮します。",
+    "description": "Architecture layer 3 expanded detail"
+  },
+  "homepage.architecture.skills.title": {
+    "message": "Skills / 実行",
+    "description": "Architecture layer 4 title"
+  },
+  "homepage.architecture.skills.desc": {
+    "message": "サンドボックスコンテナ",
+    "description": "Architecture layer 4 description"
+  },
+  "homepage.architecture.skills.detail": {
+    "message": "リソース制限、シークレット注入、監査ログを備えた隔離されたサンドボックスコンテナでSkillコードを実行します。",
+    "description": "Architecture layer 4 expanded detail"
+  },
+  "homepage.architecture.flow.messages": {
+    "message": "メッセージ",
+    "description": "Architecture flow label for gateway layer"
+  },
+  "homepage.architecture.flow.prompts": {
+    "message": "プロンプト",
+    "description": "Architecture flow label for reasoning layer"
+  },
+  "homepage.architecture.flow.context": {
+    "message": "コンテキスト",
+    "description": "Architecture flow label for memory layer"
+  },
+  "homepage.architecture.flow.actions": {
+    "message": "アクション",
+    "description": "Architecture flow label for skills layer"
+  },
+  "homepage.quiz.sectionTitle": {
+    "message": "Skill おすすめ診断"
+  },
+  "homepage.quiz.sectionSubtitle": {
+    "message": "4つの質問に答えて、あなたに最適なSkillsを見つけましょう"
+  },
+  "homepage.quiz.q1.title": {
+    "message": "OpenClawで主に何をしたいですか？"
+  },
+  "homepage.quiz.q1.opt1": {
+    "message": "メールとカレンダーの管理"
+  },
+  "homepage.quiz.q1.opt2": {
+    "message": "ソフトウェア開発の支援"
+  },
+  "homepage.quiz.q1.opt3": {
+    "message": "スマートホームの制御"
+  },
+  "homepage.quiz.q1.opt4": {
+    "message": "リサーチとデータ収集"
+  },
+  "homepage.quiz.q1.opt5": {
+    "message": "AI自動化の構築"
+  },
+  "homepage.quiz.q2.title": {
+    "message": "あなたの技術レベルは？"
+  },
+  "homepage.quiz.q2.opt1": {
+    "message": "初心者"
+  },
+  "homepage.quiz.q2.opt2": {
+    "message": "中級者"
+  },
+  "homepage.quiz.q2.opt3": {
+    "message": "上級者"
+  },
+  "homepage.quiz.q3.title": {
+    "message": "最も重視するのは？"
+  },
+  "homepage.quiz.q3.opt1": {
+    "message": "セキュリティ"
+  },
+  "homepage.quiz.q3.opt2": {
+    "message": "スピード / 効率性"
+  },
+  "homepage.quiz.q3.opt3": {
+    "message": "使いやすさ"
+  },
+  "homepage.quiz.q3.opt4": {
+    "message": "無料 / オープンソース"
+  },
+  "homepage.quiz.q4.title": {
+    "message": "どのプラットフォームを使っていますか？"
+  },
+  "homepage.quiz.q4.subtitle": {
+    "message": "該当するものをすべて選択"
+  },
+  "homepage.quiz.back": {
+    "message": "戻る"
+  },
+  "homepage.quiz.next": {
+    "message": "次へ"
+  },
+  "homepage.quiz.resultsTitle": {
+    "message": "あなたにおすすめのTop 5 Skills"
+  },
+  "homepage.quiz.resultsSubtitle": {
+    "message": "回答に基づいた、あなたに最適なSkillsです"
+  },
+  "homepage.quiz.restart": {
+    "message": "もう一度診断する"
+  },
+  "homepage.quiz.viewAll": {
+    "message": "Top 50 Skills 一覧を見る"
+  },
+  "homepage.quiz.copy": {
+    "message": "コピー"
+  },
+  "homepage.quiz.copied": {
+    "message": "コピーしました！"
+  },
+  "homepage.quiz.copyAriaLabel": {
+    "message": "インストールコマンドをコピー"
+  },
+  "homepage.quiz.skill.mailclaw": {
+    "message": "統合メール管理とスマートフィルタリング"
+  },
+  "homepage.quiz.skill.calsync": {
+    "message": "クロスプラットフォームカレンダー同期とスケジューリング"
+  },
+  "homepage.quiz.skill.devassist": {
+    "message": "AI搭載のコードレビューとPRサマリー"
+  },
+  "homepage.quiz.skill.gitclaw": {
+    "message": "GitHub/GitLab通知とCI/CDトリガー"
+  },
+  "homepage.quiz.skill.codereview": {
+    "message": "LLM分析による自動コードレビュー"
+  },
+  "homepage.quiz.skill.homebridge": {
+    "message": "メッセージングによるスマートホームデバイス制御"
+  },
+  "homepage.quiz.skill.clawiot": {
+    "message": "IoTセンサー監視と自動化ルール"
+  },
+  "homepage.quiz.skill.scenecontrol": {
+    "message": "マルチデバイスシーン自動化"
+  },
+  "homepage.quiz.skill.webscraper": {
+    "message": "変更検知付きスケジュールWebスクレイピング"
+  },
+  "homepage.quiz.skill.researchbot": {
+    "message": "マルチソースリサーチ集約とサマリー"
+  },
+  "homepage.quiz.skill.datapipe": {
+    "message": "自動データ収集とETLパイプライン"
+  },
+  "homepage.quiz.skill.autoflow": {
+    "message": "AI自動化のビジュアルワークフロービルダー"
+  },
+  "homepage.quiz.skill.chainclaw": {
+    "message": "LLMチェーンとマルチステップAIパイプライン"
+  },
+  "homepage.quiz.skill.triggerbot": {
+    "message": "スマートトリガーによるイベント駆動自動化"
+  },
+  "homepage.quiz.skill.securevault": {
+    "message": "Skills用の暗号化シークレット管理"
+  },
+  "homepage.quiz.skill.auditlog": {
+    "message": "包括的な監査ログとコンプライアンス"
+  },
+  "homepage.quiz.skill.telerelay": {
+    "message": "リッチUIコンポーネント対応Telegramボット"
+  },
+  "homepage.quiz.skill.whatsflow": {
+    "message": "WhatsApp Business API統合"
+  },
+  "homepage.quiz.skill.discordkit": {
+    "message": "Discordスラッシュコマンドとロール管理"
+  },
+  "homepage.quiz.skill.slackops": {
+    "message": "Slackワークフロー自動化とChatOps"
+  },
+  "homepage.quiz.skill.openrouter": {
+    "message": "オープンソースマルチLLMルーターとゲートウェイ"
   }
 }

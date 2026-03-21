@@ -548,5 +548,240 @@
   },
   "homepage.security.cta": {
     "message": "安全最佳实践"
+  },
+  "floatingMolty.tip.bind": {
+    "message": "记得绑定 127.0.0.1！",
+    "description": "Floating Molty tip about binding to localhost"
+  },
+  "floatingMolty.tip.ratings": {
+    "message": "安装 Skill 前先看评分！",
+    "description": "Floating Molty tip about checking skill ratings"
+  },
+  "floatingMolty.tip.podman": {
+    "message": "用 Podman 替代 Docker 更安全！",
+    "description": "Floating Molty tip about using Podman"
+  },
+  "floatingMolty.tip.soul": {
+    "message": "SOUL.md 决定你的 Agent 人格！",
+    "description": "Floating Molty tip about SOUL.md"
+  },
+  "homepage.architecture.title": {
+    "message": "OpenClaw 四层架构",
+    "description": "Architecture diagram section title"
+  },
+  "homepage.architecture.subtitle": {
+    "message": "点击任意层级，探索对应的 MasterClass 模块",
+    "description": "Architecture diagram subtitle"
+  },
+  "homepage.architecture.gateway.title": {
+    "message": "网关",
+    "description": "Architecture layer 1 title"
+  },
+  "homepage.architecture.gateway.desc": {
+    "message": "WebSocket 编排器 \u2022 端口 18789",
+    "description": "Architecture layer 1 description"
+  },
+  "homepage.architecture.gateway.detail": {
+    "message": "管理所有传入的 WebSocket 连接，将消息路由到推理层，并处理多平台协议转换。",
+    "description": "Architecture layer 1 expanded detail"
+  },
+  "homepage.architecture.reasoning.title": {
+    "message": "推理层",
+    "description": "Architecture layer 2 title"
+  },
+  "homepage.architecture.reasoning.desc": {
+    "message": "LLM 巨型提示构建",
+    "description": "Architecture layer 2 description"
+  },
+  "homepage.architecture.reasoning.detail": {
+    "message": "从上下文、记忆和 Skill 清单构建巨型提示，然后分发到配置的 LLM 提供商。",
+    "description": "Architecture layer 2 expanded detail"
+  },
+  "homepage.architecture.memory.title": {
+    "message": "记忆系统",
+    "description": "Architecture layer 3 title"
+  },
+  "homepage.architecture.memory.desc": {
+    "message": "预写日志 \u2022 Markdown 压缩",
+    "description": "Architecture layer 3 description"
+  },
+  "homepage.architecture.memory.detail": {
+    "message": "通过预写日志持久化对话上下文，并将长历史记录压缩为简洁的 Markdown 摘要。",
+    "description": "Architecture layer 3 expanded detail"
+  },
+  "homepage.architecture.skills.title": {
+    "message": "Skills / 执行层",
+    "description": "Architecture layer 4 title"
+  },
+  "homepage.architecture.skills.desc": {
+    "message": "沙箱容器",
+    "description": "Architecture layer 4 description"
+  },
+  "homepage.architecture.skills.detail": {
+    "message": "在隔离的沙箱容器中执行 Skill 代码，具备资源限制、密钥注入和审计日志功能。",
+    "description": "Architecture layer 4 expanded detail"
+  },
+  "homepage.architecture.flow.messages": {
+    "message": "消息",
+    "description": "Architecture flow label for gateway layer"
+  },
+  "homepage.architecture.flow.prompts": {
+    "message": "提示",
+    "description": "Architecture flow label for reasoning layer"
+  },
+  "homepage.architecture.flow.context": {
+    "message": "上下文",
+    "description": "Architecture flow label for memory layer"
+  },
+  "homepage.architecture.flow.actions": {
+    "message": "动作",
+    "description": "Architecture flow label for skills layer"
+  },
+  "homepage.quiz.sectionTitle": {
+    "message": "Skill 推荐测验"
+  },
+  "homepage.quiz.sectionSubtitle": {
+    "message": "回答 4 个小问题，发现最适合你的 Skills"
+  },
+  "homepage.quiz.q1.title": {
+    "message": "你主要想用 OpenClaw 做什么？"
+  },
+  "homepage.quiz.q1.opt1": {
+    "message": "管理邮件和日历"
+  },
+  "homepage.quiz.q1.opt2": {
+    "message": "辅助软件开发"
+  },
+  "homepage.quiz.q1.opt3": {
+    "message": "控制智能家居"
+  },
+  "homepage.quiz.q1.opt4": {
+    "message": "研究和数据收集"
+  },
+  "homepage.quiz.q1.opt5": {
+    "message": "构建 AI 自动化流程"
+  },
+  "homepage.quiz.q2.title": {
+    "message": "你的技术水平？"
+  },
+  "homepage.quiz.q2.opt1": {
+    "message": "初学者"
+  },
+  "homepage.quiz.q2.opt2": {
+    "message": "中级"
+  },
+  "homepage.quiz.q2.opt3": {
+    "message": "高级"
+  },
+  "homepage.quiz.q3.title": {
+    "message": "你最看重什么？"
+  },
+  "homepage.quiz.q3.opt1": {
+    "message": "安全性"
+  },
+  "homepage.quiz.q3.opt2": {
+    "message": "速度 / 效率"
+  },
+  "homepage.quiz.q3.opt3": {
+    "message": "易用性"
+  },
+  "homepage.quiz.q3.opt4": {
+    "message": "免费 / 开源"
+  },
+  "homepage.quiz.q4.title": {
+    "message": "你使用哪些平台？"
+  },
+  "homepage.quiz.q4.subtitle": {
+    "message": "可多选"
+  },
+  "homepage.quiz.back": {
+    "message": "返回"
+  },
+  "homepage.quiz.next": {
+    "message": "下一题"
+  },
+  "homepage.quiz.resultsTitle": {
+    "message": "推荐给你的 Top 5 Skills"
+  },
+  "homepage.quiz.resultsSubtitle": {
+    "message": "根据你的回答，以下是最适合你的 Skills"
+  },
+  "homepage.quiz.restart": {
+    "message": "重新测验"
+  },
+  "homepage.quiz.viewAll": {
+    "message": "查看完整 Top 50 Skills"
+  },
+  "homepage.quiz.copy": {
+    "message": "复制"
+  },
+  "homepage.quiz.copied": {
+    "message": "已复制！"
+  },
+  "homepage.quiz.copyAriaLabel": {
+    "message": "复制安装命令"
+  },
+  "homepage.quiz.skill.mailclaw": {
+    "message": "统一邮件管理和智能过滤"
+  },
+  "homepage.quiz.skill.calsync": {
+    "message": "跨平台日历同步与排程"
+  },
+  "homepage.quiz.skill.devassist": {
+    "message": "AI 驱动的代码审查和 PR 摘要"
+  },
+  "homepage.quiz.skill.gitclaw": {
+    "message": "GitHub/GitLab 通知和 CI/CD 触发器"
+  },
+  "homepage.quiz.skill.codereview": {
+    "message": "基于 LLM 分析的自动代码审查"
+  },
+  "homepage.quiz.skill.homebridge": {
+    "message": "通过消息控制智能家居设备"
+  },
+  "homepage.quiz.skill.clawiot": {
+    "message": "IoT 传感器监控和自动化规则"
+  },
+  "homepage.quiz.skill.scenecontrol": {
+    "message": "多设备场景自动化"
+  },
+  "homepage.quiz.skill.webscraper": {
+    "message": "定时网页抓取与变更检测"
+  },
+  "homepage.quiz.skill.researchbot": {
+    "message": "多来源研究聚合与摘要"
+  },
+  "homepage.quiz.skill.datapipe": {
+    "message": "自动化数据采集和 ETL 管道"
+  },
+  "homepage.quiz.skill.autoflow": {
+    "message": "AI 自动化可视化工作流构建器"
+  },
+  "homepage.quiz.skill.chainclaw": {
+    "message": "LLM 链式调用和多步骤 AI 管道"
+  },
+  "homepage.quiz.skill.triggerbot": {
+    "message": "智能触发器驱动的事件自动化"
+  },
+  "homepage.quiz.skill.securevault": {
+    "message": "Skills 加密密钥管理"
+  },
+  "homepage.quiz.skill.auditlog": {
+    "message": "全面的审计日志和合规管理"
+  },
+  "homepage.quiz.skill.telerelay": {
+    "message": "支持丰富 UI 组件的 Telegram 机器人"
+  },
+  "homepage.quiz.skill.whatsflow": {
+    "message": "WhatsApp Business API 集成"
+  },
+  "homepage.quiz.skill.discordkit": {
+    "message": "Discord 斜杠命令和角色管理"
+  },
+  "homepage.quiz.skill.slackops": {
+    "message": "Slack 工作流自动化与 ChatOps"
+  },
+  "homepage.quiz.skill.openrouter": {
+    "message": "开源多 LLM 路由器和网关"
   }
 }

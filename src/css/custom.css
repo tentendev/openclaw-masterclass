@@ -731,3 +731,90 @@ html[data-theme='dark'] ::selection {
   background-color: rgba(255, 138, 122, 0.3);
   color: inherit;
 }
+
+/* --- 11. Floating Molty Mascot --- */
+@keyframes molty-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.floating-molty:hover {
+  animation: none !important;
+}
+
+.molty-speech-bubble {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: var(--ifm-background-surface-color, #fff);
+  color: var(--ifm-font-color-base, #1c1e21);
+  border: 1px solid var(--ifm-color-emphasis-300, #dadde1);
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  animation: molty-bubble-in 0.2s ease-out;
+}
+
+.molty-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  background: var(--ifm-background-surface-color, #fff);
+  border-right: 1px solid var(--ifm-color-emphasis-300, #dadde1);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300, #dadde1);
+  transform: rotate(45deg);
+}
+
+@keyframes molty-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 12. ScrollReveal reduced-motion override --- */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .floating-molty {
+    animation: none !important;
+  }
+}
+
+/* --- 13. Copy Button --- */
+.copy-button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.copy-button:active {
+  transform: scale(0.92);
+}
+
+/* Print: hide floating elements */
+@media print {
+  .floating-molty,
+  .copy-button {
+    display: none !important;
+  }
+}

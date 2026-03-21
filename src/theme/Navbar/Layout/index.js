@@ -4,6 +4,7 @@ import { ThemeClassNames, useThemeConfig } from '@docusaurus/theme-common'
 import { useHideableNavbar, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
 import { translate } from '@docusaurus/Translate'
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
+import { CommandPaletteHint } from '@site/src/components/CommandPalette'
 import styles from './styles.module.css'
 function NavbarBackdrop(props) {
   return (
@@ -53,6 +54,7 @@ export default function NavbarLayout({ children }) {
       )}
     >
       {children}
+      <CommandPaletteHint />
       <NavbarBackdrop onClick={mobileSidebar.toggle} />
       <NavbarMobileSidebar />
     </nav>

@@ -548,5 +548,240 @@
   },
   "homepage.security.cta": {
     "message": "Security Best Practices"
+  },
+  "floatingMolty.tip.bind": {
+    "message": "Remember to bind 127.0.0.1!",
+    "description": "Floating Molty tip about binding to localhost"
+  },
+  "floatingMolty.tip.ratings": {
+    "message": "Check ratings before installing!",
+    "description": "Floating Molty tip about checking skill ratings"
+  },
+  "floatingMolty.tip.podman": {
+    "message": "Podman is safer than Docker!",
+    "description": "Floating Molty tip about using Podman"
+  },
+  "floatingMolty.tip.soul": {
+    "message": "SOUL.md defines your agent's personality!",
+    "description": "Floating Molty tip about SOUL.md"
+  },
+  "homepage.architecture.title": {
+    "message": "OpenClaw Four-Layer Architecture",
+    "description": "Architecture diagram section title"
+  },
+  "homepage.architecture.subtitle": {
+    "message": "Click any layer to explore the corresponding MasterClass module",
+    "description": "Architecture diagram subtitle"
+  },
+  "homepage.architecture.gateway.title": {
+    "message": "Gateway",
+    "description": "Architecture layer 1 title"
+  },
+  "homepage.architecture.gateway.desc": {
+    "message": "WebSocket Orchestrator \u2022 Port 18789",
+    "description": "Architecture layer 1 description"
+  },
+  "homepage.architecture.gateway.detail": {
+    "message": "Manages all incoming WebSocket connections, routes messages to the reasoning layer, and handles multi-platform protocol translation.",
+    "description": "Architecture layer 1 expanded detail"
+  },
+  "homepage.architecture.reasoning.title": {
+    "message": "Reasoning Layer",
+    "description": "Architecture layer 2 title"
+  },
+  "homepage.architecture.reasoning.desc": {
+    "message": "LLM Mega-prompting",
+    "description": "Architecture layer 2 description"
+  },
+  "homepage.architecture.reasoning.detail": {
+    "message": "Constructs mega-prompts from context, memory, and skill manifests, then dispatches them to the configured LLM provider.",
+    "description": "Architecture layer 2 expanded detail"
+  },
+  "homepage.architecture.memory.title": {
+    "message": "Memory System",
+    "description": "Architecture layer 3 title"
+  },
+  "homepage.architecture.memory.desc": {
+    "message": "Write-Ahead Logging \u2022 Markdown Compaction",
+    "description": "Architecture layer 3 description"
+  },
+  "homepage.architecture.memory.detail": {
+    "message": "Persists conversation context via write-ahead logs and compacts long histories into concise markdown summaries.",
+    "description": "Architecture layer 3 expanded detail"
+  },
+  "homepage.architecture.skills.title": {
+    "message": "Skills / Execution",
+    "description": "Architecture layer 4 title"
+  },
+  "homepage.architecture.skills.desc": {
+    "message": "Sandboxed Containers",
+    "description": "Architecture layer 4 description"
+  },
+  "homepage.architecture.skills.detail": {
+    "message": "Executes skill code in isolated, sandboxed containers with resource limits, secret injection, and audit logging.",
+    "description": "Architecture layer 4 expanded detail"
+  },
+  "homepage.architecture.flow.messages": {
+    "message": "Messages",
+    "description": "Architecture flow label for gateway layer"
+  },
+  "homepage.architecture.flow.prompts": {
+    "message": "Prompts",
+    "description": "Architecture flow label for reasoning layer"
+  },
+  "homepage.architecture.flow.context": {
+    "message": "Context",
+    "description": "Architecture flow label for memory layer"
+  },
+  "homepage.architecture.flow.actions": {
+    "message": "Actions",
+    "description": "Architecture flow label for skills layer"
+  },
+  "homepage.quiz.sectionTitle": {
+    "message": "Skill Recommendation Quiz"
+  },
+  "homepage.quiz.sectionSubtitle": {
+    "message": "Answer 4 quick questions and discover the best Skills for you"
+  },
+  "homepage.quiz.q1.title": {
+    "message": "What do you mainly want to use OpenClaw for?"
+  },
+  "homepage.quiz.q1.opt1": {
+    "message": "Manage emails & calendar"
+  },
+  "homepage.quiz.q1.opt2": {
+    "message": "Assist software development"
+  },
+  "homepage.quiz.q1.opt3": {
+    "message": "Control smart home"
+  },
+  "homepage.quiz.q1.opt4": {
+    "message": "Research & data collection"
+  },
+  "homepage.quiz.q1.opt5": {
+    "message": "Build AI automation"
+  },
+  "homepage.quiz.q2.title": {
+    "message": "What is your technical level?"
+  },
+  "homepage.quiz.q2.opt1": {
+    "message": "Beginner"
+  },
+  "homepage.quiz.q2.opt2": {
+    "message": "Intermediate"
+  },
+  "homepage.quiz.q2.opt3": {
+    "message": "Advanced"
+  },
+  "homepage.quiz.q3.title": {
+    "message": "What matters most to you?"
+  },
+  "homepage.quiz.q3.opt1": {
+    "message": "Security"
+  },
+  "homepage.quiz.q3.opt2": {
+    "message": "Speed / Efficiency"
+  },
+  "homepage.quiz.q3.opt3": {
+    "message": "Ease of use"
+  },
+  "homepage.quiz.q3.opt4": {
+    "message": "Free / Open source"
+  },
+  "homepage.quiz.q4.title": {
+    "message": "Which platforms do you use?"
+  },
+  "homepage.quiz.q4.subtitle": {
+    "message": "Select all that apply"
+  },
+  "homepage.quiz.back": {
+    "message": "Back"
+  },
+  "homepage.quiz.next": {
+    "message": "Next"
+  },
+  "homepage.quiz.resultsTitle": {
+    "message": "Your Top 5 Recommended Skills"
+  },
+  "homepage.quiz.resultsSubtitle": {
+    "message": "Based on your answers, here are the best Skills for you"
+  },
+  "homepage.quiz.restart": {
+    "message": "Retake Quiz"
+  },
+  "homepage.quiz.viewAll": {
+    "message": "View Full Top 50 Skills"
+  },
+  "homepage.quiz.copy": {
+    "message": "Copy"
+  },
+  "homepage.quiz.copied": {
+    "message": "Copied!"
+  },
+  "homepage.quiz.copyAriaLabel": {
+    "message": "Copy install command"
+  },
+  "homepage.quiz.skill.mailclaw": {
+    "message": "Unified email management and smart filtering"
+  },
+  "homepage.quiz.skill.calsync": {
+    "message": "Cross-platform calendar sync & scheduling"
+  },
+  "homepage.quiz.skill.devassist": {
+    "message": "AI-powered code review and PR summaries"
+  },
+  "homepage.quiz.skill.gitclaw": {
+    "message": "GitHub/GitLab notifications and CI/CD triggers"
+  },
+  "homepage.quiz.skill.codereview": {
+    "message": "Automated code review with LLM analysis"
+  },
+  "homepage.quiz.skill.homebridge": {
+    "message": "Smart home device control via messaging"
+  },
+  "homepage.quiz.skill.clawiot": {
+    "message": "IoT sensor monitoring and automation rules"
+  },
+  "homepage.quiz.skill.scenecontrol": {
+    "message": "Multi-device scene automation"
+  },
+  "homepage.quiz.skill.webscraper": {
+    "message": "Scheduled web scraping with change detection"
+  },
+  "homepage.quiz.skill.researchbot": {
+    "message": "Multi-source research aggregation with summaries"
+  },
+  "homepage.quiz.skill.datapipe": {
+    "message": "Automated data collection and ETL pipelines"
+  },
+  "homepage.quiz.skill.autoflow": {
+    "message": "Visual workflow builder for AI automation"
+  },
+  "homepage.quiz.skill.chainclaw": {
+    "message": "LLM chaining and multi-step AI pipelines"
+  },
+  "homepage.quiz.skill.triggerbot": {
+    "message": "Event-driven automation with smart triggers"
+  },
+  "homepage.quiz.skill.securevault": {
+    "message": "Encrypted secret management for Skills"
+  },
+  "homepage.quiz.skill.auditlog": {
+    "message": "Comprehensive audit logging and compliance"
+  },
+  "homepage.quiz.skill.telerelay": {
+    "message": "Telegram bot with rich UI components"
+  },
+  "homepage.quiz.skill.whatsflow": {
+    "message": "WhatsApp Business API integration"
+  },
+  "homepage.quiz.skill.discordkit": {
+    "message": "Discord slash commands & role management"
+  },
+  "homepage.quiz.skill.slackops": {
+    "message": "Slack workflow automation & ChatOps"
+  },
+  "homepage.quiz.skill.openrouter": {
+    "message": "Open-source multi-LLM router and gateway"
   }
 }

@@ -4,10 +4,15 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import HomepageFeatures from '@/components/Homepage/Features'
 import QuoteSection from '@/components/Homepage/QuoteSection'
 import CoursePreview from '@/components/Homepage/CoursePreview'
+import SkillQuiz from '@/components/Homepage/SkillQuiz'
 import MarchBanner from '@/components/Homepage/MarchBanner'
 import SecurityBanner from '@/components/Homepage/SecurityBanner'
+import TerminalDemo from '@/components/Homepage/TerminalDemo'
+import ArchitectureDiagram from '@/components/Homepage/ArchitectureDiagram'
 import LatestNews from '@/components/LatestNews'
 import HeroBanner from '@/components/HeroBanner'
+import ScrollReveal from '@/components/ScrollReveal'
+import FloatingMolty from '@/components/FloatingMolty'
 
 export default function Home({ homePageBlogMetadata, recentPosts }) {
   const { siteConfig } = useDocusaurusContext()
@@ -19,13 +24,35 @@ export default function Home({ homePageBlogMetadata, recentPosts }) {
     >
       <main className='background-grid background-grid--fade-out'>
         <HeroBanner />
-        <QuoteSection />
-        <HomepageFeatures />
-        <CoursePreview />
-        <MarchBanner />
-        <SecurityBanner />
-        <LatestNews recentPosts={recentPosts} homePageBlogMetadata={homePageBlogMetadata} />
+        <ScrollReveal delay={0}>
+          <TerminalDemo />
+        </ScrollReveal>
+        <ScrollReveal delay={100}>
+          <QuoteSection />
+        </ScrollReveal>
+        <ScrollReveal delay={0}>
+          <ArchitectureDiagram />
+        </ScrollReveal>
+        <ScrollReveal delay={0}>
+          <HomepageFeatures />
+        </ScrollReveal>
+        <ScrollReveal delay={100}>
+          <CoursePreview />
+        </ScrollReveal>
+        <ScrollReveal delay={0}>
+          <SkillQuiz />
+        </ScrollReveal>
+        <ScrollReveal delay={100}>
+          <MarchBanner />
+        </ScrollReveal>
+        <ScrollReveal delay={100}>
+          <SecurityBanner />
+        </ScrollReveal>
+        <ScrollReveal delay={0}>
+          <LatestNews recentPosts={recentPosts} homePageBlogMetadata={homePageBlogMetadata} />
+        </ScrollReveal>
       </main>
+      <FloatingMolty />
     </Layout>
   )
 }
