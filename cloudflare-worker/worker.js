@@ -1,0 +1,77 @@
+// Route: tenten.co/openclaw/*
+const UPSTREAM = 'openclaw-masterclass.vercel.app';
+
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+
+    // Only handle /openclaw paths
+    if (!url.pathname.startsWith('/openclaw')) {
+      return fetch(request);
+    }
+
+    // Redirect /openclaw (no trailing slash) to /openclaw/
+    if (url.pathname === '/openclaw') {
+      return Response.redirect(`${url.origin}/openclaw/`, 301);
+    }
+
+    // Build upstream URL — keep /openclaw/ prefix (Docusaurus baseUrl)
+    const upstreamUrl = new URL(url.pathname + url.search, `https://${UPSTREAM}`);
+
+    const headers = new Headers(request.headers);
+    headers.set('Host', UPSTREAM);
+    headers.set('X-Forwarded-Host', url.hostname);
+    headers.set('X-Forwarded-Proto', 'https');
+
+    const newRequest = new Request(upstreamUrl.toString(), {
+      method: request.method,
+      headers: headers,
+      body: request.body,
+      redirect: 'manual',
+    });
+
+    const response = await fetch(newRequest);
+
+    // Handle redirects from Vercel — rewrite Location header to use our domain
+    if ([301, 302, 307, 308].includes(response.status)) {
+      const location = response.headers.get('Location');
+      if (location) {
+        const redirectUrl = new URL(location, upstreamUrl);
+        if (redirectUrl.hostname === UPSTREAM) {
+          redirectUrl.hostname = url.hostname;
+          redirectUrl.protocol = url.protocol;
+        }
+        return Response.redirect(redirectUrl.toString(), response.status);
+      }
+    }
+
+    // Clone response with mutable headers
+    const newHeaders = new Headers(response.headers);
+
+    // Remove Vercel-specific headers
+    newHeaders.delete('x-vercel-id');
+    newHeaders.delete('x-vercel-cache');
+    newHeaders.delete('server');
+
+    // Security & SEO headers
+    newHeaders.set('X-Robots-Tag', 'index, follow');
+    newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
+    newHeaders.set('X-Content-Type-Options', 'nosniff');
+
+    // Cache static assets aggressively (hashed filenames = safe to cache forever)
+    if (url.pathname.match(/\/assets\/(js|css)\/.*\.[a-f0-9]+\./)) {
+      newHeaders.set('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+
+    // Cache images
+    if (url.pathname.match(/\.(svg|png|jpg|jpeg|gif|ico|webp)$/)) {
+      newHeaders.set('Cache-Control', 'public, max-age=86400');
+    }
+
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: newHeaders,
+    });
+  },
+};
