@@ -9,6 +9,8 @@ import MarchBanner from '@/components/Homepage/MarchBanner'
 import SecurityBanner from '@/components/Homepage/SecurityBanner'
 import TerminalDemo from '@/components/Homepage/TerminalDemo'
 import ArchitectureDiagram from '@/components/Homepage/ArchitectureDiagram'
+import EcosystemStats from '@/components/Homepage/EcosystemStats'
+import NewFeaturesBanner from '@/components/Homepage/NewFeaturesBanner'
 import LatestNews from '@/components/LatestNews'
 import HeroBanner from '@/components/HeroBanner'
 import ScrollReveal from '@/components/ScrollReveal'
@@ -25,7 +27,13 @@ export default function Home({ homePageBlogMetadata, recentPosts }) {
       <main className='background-grid background-grid--fade-out'>
         <HeroBanner />
         <ScrollReveal delay={0}>
+          <EcosystemStats />
+        </ScrollReveal>
+        <ScrollReveal delay={0}>
           <TerminalDemo />
+        </ScrollReveal>
+        <ScrollReveal delay={100}>
+          <NewFeaturesBanner />
         </ScrollReveal>
         <ScrollReveal delay={100}>
           <QuoteSection />

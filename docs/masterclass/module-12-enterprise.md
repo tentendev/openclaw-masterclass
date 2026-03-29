@@ -668,9 +668,43 @@ curl -H "Authorization: Bearer ${ADMIN_API_KEY}" \
 
    <details><summary>查看答案</summary>B) Jensen Huang 稱 NemoClaw 為「可能是史上最重要的軟體發布（probably the single most important release of software ever）」。</details>
 
+## 延伸：2026 Q1 企業級新功能
+
+### 使用者群組與 RBAC
+
+OpenClaw 新增了原生的使用者群組與 RBAC 權限管理，取代了之前需要自行實作的權限系統：
+
+- **使用者群組**：按部門、角色建立群組
+- **模型白名單**：每個群組可使用的 LLM 模型
+- **知識庫存取控制**：群組級別的 Knowledge Base 權限
+- **SSO 整合**：原生支援 OAuth、OIDC、LDAP、信任 Header
+
+詳見 [使用者群組與權限管理](/docs/features/user-groups)。
+
+### Pipelines 在企業中的應用
+
+Pipelines 框架為企業提供了：
+- **合規過濾**：DLP (Data Loss Prevention) Pipeline
+- **成本控制**：Rate Limit Pipeline
+- **審計記錄**：Langfuse / Prometheus 監控 Pipeline
+- **多語言支援**：Real-Time Translation Pipeline
+
+詳見 [Pipelines 完整文件](/docs/features/pipelines)。
+
+### 企業級部署指南
+
+- [Docker / Podman 部署](/docs/deployment/docker-guide) — 容器化部署最佳實踐
+- [雲端部署](/docs/deployment/cloud-deployment) — AWS / GCP / Azure 部署
+- [環境變數參考](/docs/deployment/environment-variables) — 所有設定選項
+
+---
+
 ## 建議下一步
 
-- [模組 9: 安全性](./module-09-security) — 企業部署的基礎安全設定
+- [模組 9: 安全性](./module-09-security) — 企業部署的基礎安全設��
 - [模組 10: 正式環境部署](./module-10-production) — 實際部署技術細節
-- [模組 8: 多 Agent 架構](./module-08-multi-agent) — 企業級多 Agent 協作
+- [��組 8: 多 Agent ��構](./module-08-multi-agent) — 企業級多 Agent 協作
 - [模組 11: 語音互動 & Live Canvas](./module-11-voice-canvas) — 企業語音助手部署
+- [使用者群組與權限](/docs/features/user-groups) — 原生 RBAC 權限管理
+- [Pipelines 框架](/docs/features/pipelines) — 企業級訊息處理管道
+- [雲端部署指南](/docs/deployment/cloud-deployment) — 企業級雲端部署

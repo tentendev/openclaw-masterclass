@@ -564,10 +564,55 @@ openclaw config set memory.context.strategy "adaptive"
 
 ---
 
+## 延伸：記憶系統 v2 預覽
+
+:::info 記憶系統 v2（Beta）
+記憶系統的重大重構正在進行中。v2 版本引入了多項突破性功能，可透過 `openclaw start --experimental-memory-v2` 啟用預覽。
+:::
+
+### v2 新功能
+
+| 功能 | 說明 | 狀態 |
+|------|------|------|
+| **向量化記憶搜尋** | 取代純文字匹配，使用嵌入向量進行語意搜尋 | Beta |
+| **記憶分層** | 公開 / 私密 / 敏感三級分類 | Beta |
+| **自動脫敏** | 自動偵測並脫敏 API Key、密碼等敏感資訊 | Beta |
+| **跨 Agent 共享記憶** | Opt-in 的跨 Agent 記憶共享機制 | Alpha |
+
+### v2 設定
+
+```toml
+[memory.v2]
+enabled = true
+
+# 向量搜尋設定
+embedding_model = "all-MiniLM-L6-v2"
+similarity_threshold = 0.7
+
+# 脫敏設定
+auto_redact = true
+redact_patterns = ["api_key", "password", "token", "secret"]
+
+# 跨 Agent 共享
+shared_memory_enabled = false  # 需手動啟用
+shared_memory_scope = "team"   # team / organization
+```
+
+### 與 Knowledge Base 的整合
+
+記憶系統 v2 與 [Knowledge Base & RAG](/docs/features/knowledge-rag) 深度整合。Agent 的長期記憶可以自動索引到知識庫中，讓 Agentic RAG 在搜尋時同時考慮文件知識和個人記憶。
+
+---
+
 ## 建議下一步
 
 你已經深入了解了 OpenClaw 的記憶系統。至此，你已完成 **階段一：核心基礎** 的全部五個模組！你現在具備了理解與操作 OpenClaw 所有核心元件的知識。
 
 接下來，進入 **階段二：進階應用**，學習如何利用 Heartbeat 和 Cron 建構自動化工作流程。
+
+**相關資源：**
+- [Knowledge Base & RAG](/docs/features/knowledge-rag) — RAG 系統與知識庫管理
+- [效能優化指南](/docs/features/performance) — 記憶系統效能調校
+- [使用者群組與權限](/docs/features/user-groups) — 記憶的存取控制
 
 **[返回課程總覽 →](./overview)**

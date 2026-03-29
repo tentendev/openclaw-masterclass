@@ -172,7 +172,13 @@ OpenClaw 是一個開源的 AI Agent 平台，由 Peter Steinberger 創建，在
 
 - **四層架構**：Gateway、Reasoning Layer、Memory System、Skills/Execution Layer，各層職責明確、可獨立擴展
 - **ClawHub 市集**：超過 13,000 個社群貢獻的 Skills，使用 `clawhub install <author>/<skill>` 即可安裝
+- **Pipelines 框架**：可程式化的訊息處理管道，搭配 541 個 Functions + 276 個 Tools 的擴充生態
+- **Knowledge Base & RAG**：Agentic RAG、混合搜尋、KV 前綴快取，讓 AI 真正理解你的文件
+- **Arena 模式**：盲測 A/B 對比不同 AI 模型，用科學方法找出最適合你的模型
+- **Canvas & Artifacts**：內建畫布工具、程式碼 Artifacts 獨立渲染、PDF 引用跳轉
 - **持久記憶**：透過 Write-Ahead Logging 和 Markdown Compaction，Agent 能跨對話記住重要資訊
+- **語音與多模態**：完整的 TTS/STT 支援、圖像分析、視訊通話、檔案處理
+- **使用者群組 & RBAC**：企業級權限管理、SSO 整合（OAuth、OIDC、LDAP）
 - **沙盒安全**：所有 Skills 在隔離的容器環境中執行（建議使用 Podman），確保系統安全
 - **個人化**：使用 SOUL.md 定義 Agent 的人格特質，SKILL.md 定義技能行為
 - **自動化**：Heartbeat 系統支援主動通知，Cron 排程支援定時任務
@@ -182,10 +188,15 @@ OpenClaw 是一個開源的 AI Agent 平台，由 Peter Steinberger 創建，在
 與其他 AI Agent 框架相比，OpenClaw 的優勢在於：
 
 1. **本地優先**：資料不離開你的機器，隱私有保障
-2. **生態系豐富**：13,000+ Skills 覆蓋大多數使用場景
+2. **生態系豐富**：13,000+ Skills + 541 Functions + 276 Tools + 50+ MCP 連接器
 3. **安全導向**：經歷 ClawHavoc 事件後，安全機制大幅強化
 4. **社群活躍**：250K+ GitHub Stars，活躍的 Discord 與 Reddit 社群
 5. **高度可設定**：從 SOUL.md 人格到記憶保留策略，一切都可以自訂
+6. **企業就緒**：RBAC、SSO、多租戶、合規性——滿足企業級需求
+
+:::tip 不只是 MasterClass
+除了 12 模組的 MasterClass 課程，本站還提供完整的 [功能指南](/docs/features/overview)、[整合指南](/docs/integrations/ollama)、[部署指南](/docs/deployment/docker-guide)。根據你的需求選擇最適合的學習路徑。
+:::
 
 ---
 

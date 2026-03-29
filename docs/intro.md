@@ -22,11 +22,13 @@ sidebar_position: 1
 
 ## 為什麼選擇 OpenClaw？
 
-在 AI 工具遍地開花的 2026 年，OpenClaw 之所以脫穎而出，原因有三：
+在 AI 工具遍地開花的 2026 年，OpenClaw 之所以脫穎而出，原因有五：
 
 1. **完全本機運行**：你的對話紀錄、記憶資料、設定檔全部儲存在本機，不會上傳到任何第三方伺服器。
 2. **跨平台整合**：一個 AI 代理可以同時連接 WhatsApp、Telegram、Discord、Slack、LINE、Signal、iMessage、Matrix 等平台。
-3. **技能生態系統**：透過 ClawHub 技能市集，你可以安裝超過 13,000 個社群開發的技能，從自動回信到智慧家庭控制一應俱全。
+3. **技能生態系統**：透過 ClawHub 技能市集（13,000+ 技能）、Pipelines 框架（541 Functions + 276 Tools）、以及 50+ MCP 連接器，打造無限擴充的 AI 能力。
+4. **企業級功能**：使用者群組、RBAC 權限管理、SSO 整合（OAuth/OIDC/LDAP）、Arena 模型盲測、Knowledge Base 與 Agentic RAG。
+5. **多模態互動**：不只是文字——支援語音（ElevenLabs/Deepgram/Whisper）、圖像分析、視訊通話、Canvas 畫布、Jupyter Notebook 整合。
 
 ---
 
@@ -133,5 +135,19 @@ OpenClaw 的安全議題不容忽視。以下是幾個重大安全事件：
 3. [連接通訊平台](./getting-started/connect-channels.md) — 連接你的第一個通訊平台
 4. [選擇 AI 模型](./getting-started/choose-llm.md) — 設定 LLM 提供者
 5. [SOUL.md 人格設定](./getting-started/soul-md-config.md) — 打造你的 AI 人格
+
+---
+
+## 探索更多
+
+| 你想要... | 前往 |
+|----------|------|
+| 系統化學習 OpenClaw | [MasterClass 12 模組課程](./masterclass/overview.md) |
+| 了解最新功能 | [2026 Q1 新功能總覽](./whats-new/q1-2026-features.md) |
+| 設定 Pipelines 與 RAG | [功能指南](./features/overview.md) |
+| 連接 Ollama / OpenAI | [整合指南](./integrations/ollama.md) |
+| 部署到雲端 | [部署指南](./deployment/docker-guide.md) |
+| 找到好用的 Skills | [Top 50 必裝 Skills](./top-50-skills/overview.md) |
+| 加強安全性 | [安全性最佳實踐](./security/best-practices.md) |
 
 歡迎加入超過 250,000 位開發者的行列，一起養龍蝦！

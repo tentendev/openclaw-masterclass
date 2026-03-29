@@ -18,6 +18,23 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: '功能指南',
+      collapsed: false,
+      items: [
+        'features/overview',
+        'features/pipelines',
+        'features/knowledge-rag',
+        'features/arena-mode',
+        'features/user-groups',
+        'features/canvas',
+        'features/jupyter',
+        'features/multimodal',
+        'features/voice-tts-stt',
+        'features/performance',
+      ],
+    },
+    {
+      type: 'category',
       label: 'MasterClass 課程',
       items: [
         'masterclass/overview',
@@ -33,6 +50,24 @@ const sidebars = {
         'masterclass/module-10-production',
         'masterclass/module-11-voice-canvas',
         'masterclass/module-12-enterprise',
+      ],
+    },
+    {
+      type: 'category',
+      label: '整合指南',
+      items: [
+        'integrations/ollama',
+        'integrations/openai-compatible',
+        'integrations/mcp-connectors',
+      ],
+    },
+    {
+      type: 'category',
+      label: '部署指南',
+      items: [
+        'deployment/docker-guide',
+        'deployment/cloud-deployment',
+        'deployment/environment-variables',
       ],
     },
     {
@@ -109,7 +144,9 @@ const sidebars = {
     {
       type: 'category',
       label: '最新消息',
+      collapsed: false,
       items: [
+        'whats-new/q1-2026-features',
         'whats-new/march-2026',
       ],
     },

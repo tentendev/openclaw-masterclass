@@ -13,6 +13,27 @@ const FeatureList = [
     linkText: translate({id: 'homepage.features.masterclass.linkText', message: '開始學習'})
   },
   {
+    emoji: '🔧',
+    title: translate({id: 'homepage.features.pipelines.title', message: 'Pipelines & Functions'}),
+    description: translate({id: 'homepage.features.pipelines.description', message: '541 個 Functions + 276 個 Tools 的強大生態系。用 Pipelines 打造自訂 RAG、訊息過濾、即時翻譯等 AI 工作流。'}),
+    link: '/docs/features/pipelines',
+    linkText: translate({id: 'homepage.features.pipelines.linkText', message: '探索 Pipelines'})
+  },
+  {
+    emoji: '🧠',
+    title: translate({id: 'homepage.features.rag.title', message: 'Knowledge Base & RAG'}),
+    description: translate({id: 'homepage.features.rag.description', message: 'Agentic RAG、混合搜尋、KV 前綴快取——讓你的 AI 真正理解你的文件和知識庫，後續回應幾乎即時。'}),
+    link: '/docs/features/knowledge-rag',
+    linkText: translate({id: 'homepage.features.rag.linkText', message: '建構知識庫'})
+  },
+  {
+    emoji: '🏟️',
+    title: translate({id: 'homepage.features.arena.title', message: 'Arena 模式'}),
+    description: translate({id: 'homepage.features.arena.description', message: '透過盲測 A/B 對比，科學地找出最適合你的 AI 模型。ELO 評分系統，消除品牌偏見。'}),
+    link: '/docs/features/arena-mode',
+    linkText: translate({id: 'homepage.features.arena.linkText', message: '開始盲測'})
+  },
+  {
     emoji: '🏆',
     title: translate({id: 'homepage.features.top50.title', message: 'Top 50 Skills 精選'}),
     description: translate({id: 'homepage.features.top50.description', message: '精心策劃的 50 個必裝 Skills，包含生產力工具、開發輔助、社群管理與 AI 整合，每個都附帶詳細教學。'}),
@@ -20,18 +41,25 @@ const FeatureList = [
     linkText: translate({id: 'homepage.features.top50.linkText', message: '瀏覽 Skills'})
   },
   {
-    emoji: '🤝',
-    title: translate({id: 'homepage.features.community.title', message: '社群指南'}),
-    description: translate({id: 'homepage.features.community.description', message: '加入全球 OpenClaw 開發者社群，學習如何貢獻 Skills、參與 RFC 討論、以及成為核心貢獻者的路徑。'}),
-    link: '/docs/communities/top-10',
-    linkText: translate({id: 'homepage.features.community.linkText', message: '加入社群'})
+    emoji: '🎨',
+    title: translate({id: 'homepage.features.canvas.title', message: 'Canvas & Artifacts'}),
+    description: translate({id: 'homepage.features.canvas.description', message: '內建畫布工具、程式碼 Artifacts 獨立渲染、PDF 引用跳轉——從純文字對話升級到視覺化互動體驗。'}),
+    link: '/docs/features/canvas',
+    linkText: translate({id: 'homepage.features.canvas.linkText', message: '探索 Canvas'})
   },
   {
-    emoji: '🆕',
-    title: translate({id: 'homepage.features.whatsnew.title', message: "What's New — 2026 年 3 月"}),
-    description: translate({id: 'homepage.features.whatsnew.description', message: 'OpenClaw 最新動態：v4.2 版本更新、新增 Skill Marketplace、改進的 Gateway API 以及安全性強化。'}),
-    link: '/blog',
-    linkText: translate({id: 'homepage.features.whatsnew.linkText', message: '查看最新消息'})
+    emoji: '🔊',
+    title: translate({id: 'homepage.features.voice.title', message: '語音 & 多模態'}),
+    description: translate({id: 'homepage.features.voice.description', message: 'ElevenLabs、Deepgram、Whisper 語音整合，加上圖像分析、視訊通話和檔案處理的完整多模態能力。'}),
+    link: '/docs/features/voice-tts-stt',
+    linkText: translate({id: 'homepage.features.voice.linkText', message: '體驗語音'})
+  },
+  {
+    emoji: '🚀',
+    title: translate({id: 'homepage.features.deploy.title', message: '部署 & 整合指南'}),
+    description: translate({id: 'homepage.features.deploy.description', message: 'Docker / Podman 部署、雲端平台（AWS/GCP/Azure）、Ollama 多實例、MCP 連接器——完整的部署與整合生態。'}),
+    link: '/docs/deployment/docker-guide',
+    linkText: translate({id: 'homepage.features.deploy.linkText', message: '開始部署'})
   }
 ]
 
